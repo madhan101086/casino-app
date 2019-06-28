@@ -410,7 +410,8 @@ handleSubmit()
                 <Form>
     <Form.Label>{this.state.rouletteText}</Form.Label>
     </Form>
-    <InputGroup>
+    <div>
+    <InputGroup> 
     <InputGroup.Prepend>
       <InputGroup.Text>Enter Roulette Numbers</InputGroup.Text>
     </InputGroup.Prepend>
@@ -423,6 +424,7 @@ handleSubmit()
 
       }/>
   </InputGroup>
+  </div>
                 
                 <Container>
 
@@ -433,14 +435,14 @@ handleSubmit()
                     </Row>
                     <Row>
                       <Col>
-                        <h3>
+                        <h4>
                             Red Stats <Badge variant="danger">{this.state.redCount}</Badge>
-                        </h3>
+                        </h4>
                       </Col>
                       <Col>
-                        <h3>
+                        <h4>
                             Black Stats <Badge variant="secondary">{this.state.blackCount}</Badge>
-                        </h3>
+                        </h4>
                       </Col>
                       <Col>
                         
@@ -449,50 +451,50 @@ handleSubmit()
                     </Row>
                     <Row>
                       <Col>
-                      <h3>
+                      <h4>
                     RowList1 Stats <Badge variant="warning">{this.state.rowList1}</Badge>
-                  </h3>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
+                      <h4>
                     RowList2 Stats <Badge variant="warning">{this.state.rowList2}</Badge>
-                  </h3>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
+                      <h4>
                       RowList3 Stats <Badge variant="warning">{this.state.rowList3}</Badge>
-                  </h3>
+                  </h4>
                       </Col>
                       
                     </Row>
                     <Row>
                       <Col>
-                      <h3>
-                      Col List 1 Stats <Badge variant="secondary">{this.state.colList1}</Badge>
-                  </h3>
+                      <h4>
+                      Col List 1 Stats <Badge variant="primary">{this.state.colList1}</Badge>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
-                      Col List 2 Stats <Badge variant="secondary">{this.state.colList2}</Badge>
-                  </h3>
+                      <h4>
+                      Col List 2 Stats <Badge variant="primary">{this.state.colList2}</Badge>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
-                      Col List 3 Stats <Badge variant="secondary">{this.state.colList3}</Badge>
-                  </h3>
+                      <h4>
+                      Col List 3 Stats <Badge variant="primary">{this.state.colList3}</Badge>
+                  </h4>
                       </Col>
                       
                     </Row>
                     <Row>
                       <Col>
-                      <h3>
-                      Left Wheel Stats <Badge variant="secondary">{this.state.leftWheel}</Badge>
-                  </h3>
+                      <h4>
+                      Left Wheel Stats <Badge variant="success">{this.state.leftWheel}</Badge>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
-                      Right Wheel Stats <Badge variant="secondary">{this.state.rightWheel}</Badge>
-                  </h3>
+                      <h4>
+                      Right Wheel Stats <Badge variant="success">{this.state.rightWheel}</Badge>
+                  </h4>
                       </Col>
                       <Col>
                       
@@ -502,40 +504,40 @@ handleSubmit()
 
                     <Row>
                       <Col>
-                      <h3>
-                      Tier Stats <Badge variant="secondary">{this.state.tier}</Badge>
-                  </h3>
+                      <h4>
+                      Tier Stats <Badge variant="info">{this.state.tier}</Badge>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
-                      Orphellins Stats <Badge variant="secondary">{this.state.orephellins}</Badge>
-                  </h3>
+                      <h4>
+                      Orphellins Stats <Badge variant="info">{this.state.orephellins}</Badge>
+                  </h4>
                       </Col>
                       <Col>
-                      <h3>
-                      Voison Stats <Badge variant="secondary">{this.state.voisins}</Badge>
-                  </h3>
+                      <h4>
+                      Voison Stats <Badge variant="info">{this.state.voisins}</Badge>
+                  </h4>
                       </Col>
 
                       
                     </Row>
                   <Row>
                     <Col>
-                    <h3>
-                      Zero Stats <Badge variant="secondary">{this.state.zeroVar}</Badge>
-                  </h3>
+                    <h4>
+                      Zero Stats <Badge variant="info">{this.state.zeroVar}</Badge>
+                  </h4>
                     </Col>
                     </Row>
                     <Row>
                       <Col>
-                        <h3>
-                        Odd Stats <Badge variant="secondary">{this.state.odd}</Badge>
-                        </h3>
+                        <h4>
+                        Odd Stats <Badge variant="success">{this.state.odd}</Badge>
+                        </h4>
                       </Col>
                       <Col>
-                        <h3>
-                        Even Stats <Badge variant="secondary">{this.state.even}</Badge>
-                        </h3>
+                        <h4>
+                        Even Stats <Badge variant="success">{this.state.even}</Badge>
+                        </h4>
                       </Col>
                       <Col>
                       
@@ -543,14 +545,14 @@ handleSubmit()
                     </Row>
                     <Row>
                       <Col>
-                        <h3>
-                        Small Stats <Badge variant="secondary">{this.state.small}</Badge>
-                        </h3>
+                        <h4>
+                        Small Stats <Badge variant="success">{this.state.small}</Badge>
+                        </h4>
                       </Col>
                       <Col>
-                        <h3>
-                        Large Stats <Badge variant="secondary">{this.state.large}</Badge>
-                        </h3>
+                        <h4>
+                        Large Stats <Badge variant="success">{this.state.large}</Badge>
+                        </h4>
                       </Col>
                       <Col>
                       

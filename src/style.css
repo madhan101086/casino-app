@@ -1,7 +1,9 @@
 body {
-    background-color: whitesmoke;
+    background-color: red;
 }
-
+div{
+    margin:12px !important
+}
 .todo-list {
     background-color: white;
     margin: auto;
