@@ -6,6 +6,7 @@ import {Button} from "react-bootstrap"
 import {Badge} from "react-bootstrap"
 import {Form} from "react-bootstrap"
 import {InputGroup,FormControl,Container,Row,Col} from "react-bootstrap"
+import './style.css'
 
 class App extends React.Component {
     constructor() {
