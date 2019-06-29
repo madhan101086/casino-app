@@ -19,10 +19,45 @@ const large=[19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
 const rouList=[
     {number:1,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins"},
     {number:2,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"voisins"},
-    {number:3,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"voisins-zero"},
+    {number:3,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"zero"},
     {number:4,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"even",wheelType:"right",box:"voisins"},
     {number:5,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"odd",wheelType:"left",box:"tiers"},
-    {number:6,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"right",box:"orphelins"}
+    {number:6,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"right",box:"orphelins"},
+
+    {number:7,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins"},
+    {number:8,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"tiers"},
+    {number:9,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"orphellins"},
+    {number:10,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"even",wheelType:"right",box:"tiers"},
+    {number:11,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers"},
+    {number:12,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"left",box:"zero"},
+
+    {number:13,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"tiers"},
+    {number:14,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins"},
+    {number:15,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"zero"},
+    {number:16,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"tiers"},
+    {number:17,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"orphellins"},
+    {number:18,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"voisins"},
+
+    {number:19,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins"},
+    {number:20,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins"},
+    {number:21,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"voisins"},
+    {number:22,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"voisins"},
+    {number:23,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers"},
+    {number:24,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"tiers"},
+
+    {number:25,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins"},
+    {number:26,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"left",box:"zero"},
+    {number:27,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"odd",wheelType:"right",box:"tiers"},
+    {number:28,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"even",wheelType:"left",box:"voisins"},
+    {number:29,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"odd",wheelType:"left",box:"voisins"},
+    {number:30,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers"},
+
+    {number:31,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"left",box:"orphellins"},
+    {number:32,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"right",box:"zero"},
+    {number:33,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"odd",wheelType:"left",box:"tiers"},
+    {number:34,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"even",wheelType:"right",box:"orphellins"},
+    {number:35,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"odd",wheelType:"left",box:"voisins"},
+    {number:36,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers"}
 ];
 const rouletteConst={
     redList:redList,blacklist,rowList1,rowList2,rowList3,colList1,colList2,colList3,leftWheelList,rightWheelList,
