@@ -6,7 +6,15 @@ import {Button} from "react-bootstrap"
 import {Badge} from "react-bootstrap"
 import {Form} from "react-bootstrap"
 import {InputGroup,FormControl,Container,Row,Col} from "react-bootstrap"
+import DisplayStats from "./Stats"
+import DisplayRouletteStats from "./DisplayRouletteStats"
+import DisplayWheelNumbers from "./DisplayWheelNumbers"
+
+import { Icon, Image, Statistic } from 'semantic-ui-react'
+
+
 import './style.css'
+
 
 class App extends React.Component {
     constructor() {
@@ -23,7 +31,8 @@ class App extends React.Component {
             colList2:0,
             colList3:0,
             leftWheel:0,rightWheel:0,tier:0,orephellins:0,voisins:0,zeroVar:0,large:0,small:0,
-            odd:0,even:0
+            odd:0,even:0,
+            wheelNumbers:[]
         }
         this.handleRedNumber=this.handleRedNumber.bind(this);
         this.handleBlackNumber=this.handleBlackNumber.bind(this);
@@ -212,6 +221,7 @@ handleLeftWheel()
 {
   let rouletteNumber=this.state.rouletteNumber;
   let listArr=[]; 
+  let count=0;
   rouletteConst.leftWheelList.forEach((item,index)=>{
     let listIndex=rouletteNumber.lastIndexOf(item) 
     if(listIndex!=-1)
@@ -219,16 +229,22 @@ handleLeftWheel()
       
       const actualIndex=rouletteNumber.length-listIndex
       listArr.push(actualIndex)
-
+      count=Math.min.apply(null, listArr)
       this.setState({leftWheel:Math.min.apply(null, listArr)})
    
     }    
   })
+  if(count>=4){
+    let wheelArr=rouletteConst.leftWheelList;
+    wheelArr.sort(function(a, b){return a - b});
+    this.setState({wheelNumbers:wheelArr});
+  }
 }
 handleRightWheel()
 {
   let rouletteNumber=this.state.rouletteNumber;
   let listArr=[]; 
+  let count=0;
   rouletteConst.rightWheelList.forEach((item,index)=>{
     let listIndex=rouletteNumber.lastIndexOf(item) 
     if(listIndex!=-1)
@@ -236,11 +252,16 @@ handleRightWheel()
       
       const actualIndex=rouletteNumber.length-listIndex
       listArr.push(actualIndex)
-
+      count=Math.min.apply(null, listArr);
       this.setState({rightWheel:Math.min.apply(null, listArr)})
    
     }    
   })
+  if(count>=4){
+    let wheelArr=rouletteConst.rightWheelList.sort();
+    wheelArr.sort(function(a, b){return a - b});
+    this.setState({wheelNumbers:wheelArr});
+  }
 }
 handleTier()
 {
@@ -380,6 +401,7 @@ handleLarge()
 }
 handleSubmit()
 {
+  this.setState({wheelNumbers:[]})
   this.handleRedNumber();
   this.handleBlackNumber();
   this.handleRowList1();
@@ -405,12 +427,13 @@ handleSubmit()
 }
     
     render() {
+        
         return (
             <div >
                 <h1>Roulette Stats</h1>
-                <Form>
-    <Form.Label>{this.state.rouletteText}</Form.Label>
-    </Form>
+                <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
+                
+
     <div>
     <InputGroup> 
     <InputGroup.Prepend>
@@ -434,136 +457,40 @@ handleSubmit()
                     <Button variant="outline-success" onClick={this.handleSubmit}>Get Stats</Button>
                     </Col>
                     </Row>
-                    <Row>
-                      <Col>
-                        <h4>
-                            Red Stats <Badge variant="danger">{this.state.redCount}</Badge>
-                        </h4>
-                      </Col>
-                      <Col>
-                        <h4>
-                            Black Stats <Badge variant="secondary">{this.state.blackCount}</Badge>
-                        </h4>
-                      </Col>
-                      <Col>
-                        
-                      </Col>
-                      
-                    </Row>
-                    <Row>
-                      <Col>
-                      <h4>
-                    RowList1 Stats <Badge variant="warning">{this.state.rowList1}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                    RowList2 Stats <Badge variant="warning">{this.state.rowList2}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                      RowList3 Stats <Badge variant="warning">{this.state.rowList3}</Badge>
-                  </h4>
-                      </Col>
-                      
-                    </Row>
-                    <Row>
-                      <Col>
-                      <h4>
-                      Col List 1 Stats <Badge variant="primary">{this.state.colList1}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                      Col List 2 Stats <Badge variant="primary">{this.state.colList2}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                      Col List 3 Stats <Badge variant="primary">{this.state.colList3}</Badge>
-                  </h4>
-                      </Col>
-                      
-                    </Row>
-                    <Row>
-                      <Col>
-                      <h4>
-                      Left Wheel Stats <Badge variant="success">{this.state.leftWheel}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                      Right Wheel Stats <Badge variant="success">{this.state.rightWheel}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      
-                      </Col>
-                      
-                    </Row>
-
-                    <Row>
-                      <Col>
-                      <h4>
-                      Tier Stats <Badge variant="info">{this.state.tier}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                      Orphellins Stats <Badge variant="info">{this.state.orephellins}</Badge>
-                  </h4>
-                      </Col>
-                      <Col>
-                      <h4>
-                      Voison Stats <Badge variant="info">{this.state.voisins}</Badge>
-                  </h4>
-                      </Col>
-
-                      
-                    </Row>
-                  <Row>
-                    <Col>
-                    <h4>
-                      Zero Stats <Badge variant="info">{this.state.zeroVar}</Badge>
-                  </h4>
-                    </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <h4>
-                        Odd Stats <Badge variant="success">{this.state.odd}</Badge>
-                        </h4>
-                      </Col>
-                      <Col>
-                        <h4>
-                        Even Stats <Badge variant="success">{this.state.even}</Badge>
-                        </h4>
-                      </Col>
-                      <Col>
-                      
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <h4>
-                        Small Stats <Badge variant="success">{this.state.small}</Badge>
-                        </h4>
-                      </Col>
-                      <Col>
-                        <h4>
-                        Large Stats <Badge variant="success">{this.state.large}</Badge>
-                        </h4>
-                      </Col>
-                      <Col>
-                      
-                      </Col>
-                    </Row>
+                    <h3>Betting Numbers</h3>
+                    <DisplayWheelNumbers wheelNumbers={this.state.wheelNumbers}/>
+                    
                     
                    
                 </Container>
                 <div>
-            
+                <Statistic.Group widths='seven'>
+                  <DisplayRouletteStats count={this.state.redCount} label="Red" color="red"/>
+                  <DisplayRouletteStats count={this.state.blackCount} label="Black" color="black"/>
+                  <DisplayRouletteStats count={this.state.small} label="Small" color="orange"/>
+                  <DisplayRouletteStats count={this.state.large} label="Large" color="green"/>
+                  <DisplayRouletteStats count={this.state.odd} label="Odd" color="purple"/>
+                  <DisplayRouletteStats count={this.state.even} label="Even" color="teal"/>
+                 
+                  </Statistic.Group>
+                  <Statistic.Group widths='seven'>
+                  <DisplayRouletteStats count={this.state.rightWheel} label="Right" color="red"/>
+                  <DisplayRouletteStats count={this.state.leftWheel} label="Left" color="red"/>
+                  <DisplayRouletteStats count={this.state.zeroVar} label="Zero" color="olive"/>
+                  <DisplayRouletteStats count={this.state.voisins} label="Voisins" color="olive"/>
+                  <DisplayRouletteStats count={this.state.orephellins} label="Orphellins" color="olive"/>
+                  <DisplayRouletteStats count={this.state.tier} label="Tier" color="olive"/>
+                 
+                  </Statistic.Group>
+                  <Statistic.Group widths='seven'>
+                  <DisplayRouletteStats count={this.state.rowList1} label="1-12" color="orange"/>
+                  <DisplayRouletteStats count={this.state.rowList2} label="13-24" color="orange"/>
+                  <DisplayRouletteStats count={this.state.rowList3} label="25-36" color="orange"/>
+                  <DisplayRouletteStats count={this.state.colList1} label="Col 1" color="green"/>
+                  <DisplayRouletteStats count={this.state.colList2} label="Col 2" color="green"/>
+                  <DisplayRouletteStats count={this.state.colList3} label="Col 3" color="green"/>
+                 
+                  </Statistic.Group>
                   </div>
             </div>
         )    
