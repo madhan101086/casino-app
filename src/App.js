@@ -21,6 +21,7 @@ class App extends React.Component {
         super()
         this.state = {
             rouletteNumber:[4,8,13,34,35,4,6,34,6],
+            //rouletteNumber:[],
             rouletteText:"",
             redCount:0,
             blackCount:0,
@@ -31,34 +32,39 @@ class App extends React.Component {
             colList2:0,
             colList3:0,
             leftWheel:0,rightWheel:0,tier:0,orephellins:0,voisins:0,zeroVar:0,large:0,small:0,
-            odd:0,even:0,
+            odd:0,even:0,totalCount:0,
             wheelNumbers:[]
         }
-        this.handleRedNumber=this.handleRedNumber.bind(this);
-        this.handleBlackNumber=this.handleBlackNumber.bind(this);
-        this.handleRowList1=this.handleRowList1.bind(this);
-        this.handleRowList2=this.handleRowList2.bind(this);
-        this.handleRowList3=this.handleRowList3.bind(this);
-        this.handleColList1=this.handleColList1.bind(this);
-        this.handleColList2=this.handleColList2.bind(this);
-        this.handleColList3=this.handleColList3.bind(this);
-        this.handleLeftWheel=this.handleLeftWheel.bind(this);
-        this.handleRightWheel=this.handleRightWheel.bind(this);
-        this.handleTier=this.handleTier.bind(this);
-        this.handleOrphan=this.handleOrphan.bind(this);
-        this.handleVoison=this.handleVoison.bind(this);
-        this.handleZero=this.handleZero.bind(this);
-        this.handleOdd=this.handleOdd.bind(this);
-        this.handleEven=this.handleEven.bind(this);
-        this.handleSmall=this.handleSmall.bind(this);
-        this.handleLarge=this.handleLarge.bind(this);
+
         
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleRouletteBlur=this.handleRouletteBlur.bind(this);
+        this.determineNumberIndex=this.determineNumberIndex.bind(this);
+        this.handleLeftWheel=this.handleLeftWheel.bind(this)
+        this.handleRightWheel=this.handleRightWheel.bind(this)
     }
+    determineNumberIndex(rouletteType)
+{ 
+  let listArr=[]; 
+  let index=0;
+  let rouletteNumber=this.state.rouletteNumber
+  rouletteType.forEach((item,index)=>
+  {  
+    let listIndex=rouletteNumber.lastIndexOf(item) 
+    if(listIndex!=-1)
+    {    
+      const actualIndex=rouletteNumber.length-listIndex
+      listArr.push(actualIndex)
+    }    
+  })
+  index=Math.min.apply(null, listArr);
+ 
+  return index
+}
+
 handleRouletteBlur(val)
 {
-console.log("val "+val);
+
 let valList=val.split(",");
 
 valList.forEach(item=>{
@@ -69,369 +75,71 @@ valList.forEach(item=>{
       preArr.push(Number(item))
     }
     
-   console.log(preArr)
+
   return {rouletteNumber:preArr}
   })
 })
-console.log(valList);
+
 }   
-handleRedNumber()
-{
-  console.log(this.state.rouletteNumber)
-  let rouletteNumber=this.state.rouletteNumber;
-  let redListArr=[];   
-  rouletteConst.redList.forEach((item,index)=>{
-    let redIndex=rouletteNumber.lastIndexOf(item) 
-    if(redIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-redIndex
-      console.log(actualIndex)
-      redListArr.push(actualIndex)
-      console.log(Math.min(redListArr));
-      this.setState({redCount:Math.min.apply(null, redListArr)})
-   
-    }    
-  })
-}
-handleBlackNumber()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.blacklist.forEach((item,index)=>{
-    let blackIndex=rouletteNumber.lastIndexOf(item) 
-    if(blackIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-blackIndex
-      console.log(actualIndex)
-      listArr.push(actualIndex)
-
-      this.setState({blackCount:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleRowList1()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.rowList1.forEach((item,index)=>{
-    let rowListIndex=rouletteNumber.lastIndexOf(item) 
-    if(rowListIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-rowListIndex
-      console.log(actualIndex)
-      listArr.push(actualIndex)
-
-      this.setState({rowList1:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleRowList2()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.rowList2.forEach((item,index)=>{
-    let rowListIndex=rouletteNumber.lastIndexOf(item) 
-    if(rowListIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-rowListIndex
-      console.log(actualIndex)
-      listArr.push(actualIndex)
-
-      this.setState({rowList2:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleRowList3()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.rowList3.forEach((item,index)=>{
-    let rowListIndex=rouletteNumber.lastIndexOf(item) 
-    if(rowListIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-rowListIndex
-      console.log(actualIndex)
-      listArr.push(actualIndex)
-
-      this.setState({rowList3:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleColList1()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.colList1.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({colList1:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleColList2()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.colList2.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({colList2:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleColList3()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.colList3.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({colList3:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
 handleLeftWheel()
 {
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  let count=0;
-  rouletteConst.leftWheelList.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-      count=Math.min.apply(null, listArr)
-      this.setState({leftWheel:Math.min.apply(null, listArr)})
-   
-    }    
-  })
+  let count=this.determineNumberIndex(rouletteConst.leftWheelList)
+  console.log(count)
   if(count>=4){
     let wheelArr=rouletteConst.leftWheelList;
     wheelArr.sort(function(a, b){return a - b});
+    
     this.setState({wheelNumbers:wheelArr});
   }
 }
 handleRightWheel()
 {
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  let count=0;
-  rouletteConst.rightWheelList.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-      count=Math.min.apply(null, listArr);
-      this.setState({rightWheel:Math.min.apply(null, listArr)})
-   
-    }    
-  })
+  let count=this.determineNumberIndex(rouletteConst.rightWheelList)
   if(count>=4){
     let wheelArr=rouletteConst.rightWheelList.sort();
     wheelArr.sort(function(a, b){return a - b});
     this.setState({wheelNumbers:wheelArr});
   }
 }
-handleTier()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.tierList.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
 
-      this.setState({tier:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleOrphan()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.orphelinsList.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({orephellins:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleVoison()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.voisinsList.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({voisins:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleZero()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.zeroList.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({zeroVar:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleOdd()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.odd.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({odd:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleEven()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.even.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({even:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleSmall()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.small.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({small:Math.min.apply(null, listArr)})
-   
-    }    
-  })
-}
-handleLarge()
-{
-  let rouletteNumber=this.state.rouletteNumber;
-  let listArr=[]; 
-  rouletteConst.large.forEach((item,index)=>{
-    let listIndex=rouletteNumber.lastIndexOf(item) 
-    if(listIndex!=-1)
-    {
-      
-      const actualIndex=rouletteNumber.length-listIndex
-      listArr.push(actualIndex)
-
-      this.setState({large:Math.min.apply(null, listArr)})
-      
-    }    
-  })
-}
 handleSubmit()
 {
   this.setState({wheelNumbers:[]})
-  this.handleRedNumber();
-  this.handleBlackNumber();
-  this.handleRowList1();
-  this.handleRowList2();
-  this.handleRowList3();
-  this.handleColList1();
-  this.handleColList2();
-  this.handleColList3();
-  this.handleLeftWheel();
-  this.handleRightWheel();
-  this.handleTier();
-  this.handleOrphan();
-  this.handleVoison();
-  this.handleZero();
-  this.handleOdd();
-  this.handleEven();
-  this.handleSmall();
-  this.handleLarge();
+ 
 
-  const rouStr=this.state.rouletteNumber.join(",");
-  this.setState({rouletteText:rouStr})
+  this.setState({redCount:this.determineNumberIndex(rouletteConst.redList)});
+  this.setState({blackCount:this.determineNumberIndex(rouletteConst.blacklist)});
+  this.setState({small:this.determineNumberIndex(rouletteConst.small)});
+  this.setState({large:this.determineNumberIndex(rouletteConst.large)});
+  this.setState({odd:this.determineNumberIndex(rouletteConst.odd)});
+  this.setState({even:this.determineNumberIndex(rouletteConst.even)});
+  this.setState({rightWheel:this.determineNumberIndex(rouletteConst.rightWheelList)});
+  this.setState({leftWheel:this.determineNumberIndex(rouletteConst.leftWheelList)});
+  this.setState({zeroVar:this.determineNumberIndex(rouletteConst.zeroList)});
+  this.setState({voisins:this.determineNumberIndex(rouletteConst.voisinsList)});
+  this.setState({orephellins:this.determineNumberIndex(rouletteConst.orphelinsList)});
+  this.setState({tier:this.determineNumberIndex(rouletteConst.tierList)});
+  this.setState({rowList1:this.determineNumberIndex(rouletteConst.rowList1)});
+  this.setState({rowList2:this.determineNumberIndex(rouletteConst.rowList2)});
+  this.setState({rowList3:this.determineNumberIndex(rouletteConst.rowList3)});
+  this.setState({colList1:this.determineNumberIndex(rouletteConst.colList1)});
+  this.setState({colList2:this.determineNumberIndex(rouletteConst.colList2)});
+  this.setState({colList3:this.determineNumberIndex(rouletteConst.colList3)});
 
+  this.handleLeftWheel()
+  this.handleRightWheel()
 }
     
     render() {
-        
+        const rouList=this.state.rouletteNumber;
         return (
             <div >
                 <h1>Roulette Stats</h1>
+                <Statistic.Group widths='two'>
+                  <DisplayRouletteStats count={this.state.rouletteNumber.length} label="Total Rounds" color="red"/>
+                  </Statistic.Group>
                 <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
+              
                 
 
     <div>
@@ -441,7 +149,7 @@ handleSubmit()
     </InputGroup.Prepend>
     <FormControl as="textarea" aria-label="Enter Roulette Numbers" onBlur={(evt)=>
       {
-        console.log(evt.target.value)
+        
         this.handleRouletteBlur(evt.target.value)
       }
         
