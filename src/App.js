@@ -84,7 +84,7 @@ valList.forEach(item=>{
 handleLeftWheel()
 {
   let count=this.determineNumberIndex(rouletteConst.leftWheelList)
-  console.log(count)
+  //console.log(count)
   if(count>=4){
     let wheelArr=rouletteConst.leftWheelList;
     wheelArr.sort(function(a, b){return a - b});
