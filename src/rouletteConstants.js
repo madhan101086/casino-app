@@ -61,6 +61,6 @@ const rouList=[
 ];
 const rouletteConst={
     redList:redList,blacklist,rowList1,rowList2,rowList3,colList1,colList2,colList3,leftWheelList,rightWheelList,
-    tierList,orphelinsList,voisinsList,zeroList,odd,even,small,large
+    tierList,orphelinsList,voisinsList,zeroList,odd,even,small,large,rouList
 };
 export default rouletteConst

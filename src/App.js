@@ -6,11 +6,12 @@ import {Button} from "react-bootstrap"
 import {Badge} from "react-bootstrap"
 import {Form} from "react-bootstrap"
 import {InputGroup,FormControl,Container,Row,Col} from "react-bootstrap"
-import DisplayStats from "./Stats"
+import DisplayStatistics from "./DisplayStats"
 import DisplayRouletteStats from "./DisplayRouletteStats"
 import DisplayWheelNumbers from "./DisplayWheelNumbers"
-
-import { Icon, Image, Statistic } from 'semantic-ui-react'
+import { Tab } from 'semantic-ui-react'
+import { Icon, Image, Statistic,Label } from 'semantic-ui-react'
+import DisplayRouletteDetails from "./DisplayRouletteNumberDetails"
 
 
 import './style.css'
@@ -132,9 +133,27 @@ handleSubmit()
     
     render() {
         const rouList=this.state.rouletteNumber;
+        const displayStats=<DisplayStatistics stats={this.state}></DisplayStatistics>
+        const displayRouletteDetails= <DisplayRouletteDetails stats={this.state.rouletteNumber}></DisplayRouletteDetails>
+        const panes = [
+          { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
+          { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
+          
+        ]
+        const TabsPointing = () => (
+          <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+        )
+        const RouletteImage = () => (
+          <Image src='images/RouletteImage.jpg' size='medium' circular />
+        )
         return (
             <div >
-                <h1>Roulette Stats</h1>
+              {/* <RouletteImage/>  */}
+              <Label circular color="blue">
+              <h1>Roulette Statistics $</h1>
+             
+              </Label>
+                
                 <Statistic.Group widths='two'>
                   <DisplayRouletteStats count={this.state.rouletteNumber.length} label="Total Rounds" color="red"/>
                   </Statistic.Group>
@@ -171,35 +190,9 @@ handleSubmit()
                     
                    
                 </Container>
-                <div>
-                <Statistic.Group widths='seven'>
-                  <DisplayRouletteStats count={this.state.redCount} label="Red" color="red"/>
-                  <DisplayRouletteStats count={this.state.blackCount} label="Black" color="black"/>
-                  <DisplayRouletteStats count={this.state.small} label="Small" color="orange"/>
-                  <DisplayRouletteStats count={this.state.large} label="Large" color="green"/>
-                  <DisplayRouletteStats count={this.state.odd} label="Odd" color="purple"/>
-                  <DisplayRouletteStats count={this.state.even} label="Even" color="teal"/>
-                 
-                  </Statistic.Group>
-                  <Statistic.Group widths='seven'>
-                  <DisplayRouletteStats count={this.state.rightWheel} label="Right" color="red"/>
-                  <DisplayRouletteStats count={this.state.leftWheel} label="Left" color="red"/>
-                  <DisplayRouletteStats count={this.state.zeroVar} label="Zero" color="olive"/>
-                  <DisplayRouletteStats count={this.state.voisins} label="Voisins" color="olive"/>
-                  <DisplayRouletteStats count={this.state.orephellins} label="Orphellins" color="olive"/>
-                  <DisplayRouletteStats count={this.state.tier} label="Tier" color="olive"/>
-                 
-                  </Statistic.Group>
-                  <Statistic.Group widths='seven'>
-                  <DisplayRouletteStats count={this.state.rowList1} label="1-12" color="orange"/>
-                  <DisplayRouletteStats count={this.state.rowList2} label="13-24" color="orange"/>
-                  <DisplayRouletteStats count={this.state.rowList3} label="25-36" color="orange"/>
-                  <DisplayRouletteStats count={this.state.colList1} label="Col 1" color="green"/>
-                  <DisplayRouletteStats count={this.state.colList2} label="Col 2" color="green"/>
-                  <DisplayRouletteStats count={this.state.colList3} label="Col 3" color="green"/>
-                 
-                  </Statistic.Group>
-                  </div>
+    
+    <TabsPointing></TabsPointing>
+  
             </div>
         )    
     }
