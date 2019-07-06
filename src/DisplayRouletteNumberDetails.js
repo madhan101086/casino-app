@@ -10,7 +10,7 @@ const DisplayRouletteDetails = (props) =>
  // props.stats.rouletteNumber;
   rouletteNumber.forEach((item,id)=>{
     const result = rouletteConst.rouList.find( rouNumber => rouNumber.number == item );
-    console.log(result)
+    console.log(item)
     const idLabel=(<Label circular color="purple" key={id}>{id+1}</Label>)
     let redBlackColor="";
     let wheelColor=""
@@ -58,18 +58,18 @@ const DisplayRouletteDetails = (props) =>
     }
     const colorLabel=(<Label circular color={redBlackColor} key={id}>{result.color}</Label>)
     const numberLabel=(<Label circular color={redBlackColor} key={id}>{result.number}</Label>)
-    const wheelColorLabel=(<Label circular color={wheelColor} key={id}>{result.wheelType}</Label>)
-    const boxColorLabel=(<Label circular color={boxColor} key={id}>{result.box}</Label>)
+    const wheelColorLabel=(<Label circular color={wheelColor} key={id}>{result.wheelType.toUpperCase()}</Label>)
+    const boxColorLabel=(<Label circular color={boxColor} key={id}>{result.box.toUpperCase()}</Label>)
    const tableRow=( <Table.Row>
           <Table.Cell>{idLabel}</Table.Cell>
           <Table.Cell>{numberLabel}</Table.Cell>
 
-          <Table.Cell>{result.type}</Table.Cell>
-          <Table.Cell>{result.numberRange}</Table.Cell>
+          <Table.Cell>{result.type.toUpperCase()}</Table.Cell>
+          <Table.Cell>{result.numberRange.toUpperCase()}</Table.Cell>
           <Table.Cell >{wheelColorLabel}</Table.Cell>
           <Table.Cell>{boxColorLabel}</Table.Cell>
-          <Table.Cell>{result.colList}</Table.Cell>
-          <Table.Cell >{result.rowList}</Table.Cell>
+          <Table.Cell>{result.colList.toUpperCase()}</Table.Cell>
+          <Table.Cell >{result.rowList.toUpperCase()}</Table.Cell>
         </Table.Row>)
         rowList.push(tableRow)
 

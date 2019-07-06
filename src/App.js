@@ -21,8 +21,8 @@ class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            rouletteNumber:[4,8,13,34,35,4,6,34,6],
-            //rouletteNumber:[],
+            rouletteNumber:[33,6,4,28,27,35],
+            rouletteNumber:[],
             rouletteText:"",
             redCount:0,
             blackCount:0,
@@ -44,11 +44,12 @@ class App extends React.Component {
         this.handleLeftWheel=this.handleLeftWheel.bind(this)
         this.handleRightWheel=this.handleRightWheel.bind(this)
     }
-    determineNumberIndex(rouletteType)
+determineNumberIndex(rouletteType)
 { 
   let listArr=[]; 
   let index=0;
   let rouletteNumber=this.state.rouletteNumber
+  
   rouletteType.forEach((item,index)=>
   {  
     let listIndex=rouletteNumber.lastIndexOf(item) 
@@ -58,7 +59,16 @@ class App extends React.Component {
       listArr.push(actualIndex)
     }    
   })
-  index=Math.min.apply(null, listArr);
+  console.log(rouletteType);
+  console.log(listArr);
+  if(listArr.length==0)
+  {
+    index=0;
+  }
+  else{
+    index=Math.min.apply(null, listArr);
+  }
+  
  
   return index
 }
@@ -148,15 +158,11 @@ handleSubmit()
         )
         return (
             <div >
-              {/* <RouletteImage/>  */}
-              <Label circular color="blue">
-              <h1>Roulette Statistics $</h1>
-             
-              </Label>
+         
                 
-                <Statistic.Group widths='two'>
-                  <DisplayRouletteStats count={this.state.rouletteNumber.length} label="Total Rounds" color="red"/>
-                  </Statistic.Group>
+         <Label circular color="red" >{this.state.rouletteNumber.length} Rounds</Label>
+                  
+                 
                 <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
               
                 
