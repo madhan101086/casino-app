@@ -12,7 +12,7 @@ import DisplayWheelNumbers from "./DisplayWheelNumbers"
 import { Tab } from 'semantic-ui-react'
 import { Icon, Image, Statistic,Label } from 'semantic-ui-react'
 import DisplayRouletteDetails from "./DisplayRouletteNumberDetails"
-
+import RetrieveStatsList from "./RetrieveStatsTypeList"
 
 import './style.css'
 
@@ -33,16 +33,17 @@ class App extends React.Component {
             colList2:0,
             colList3:0,
             leftWheel:0,rightWheel:0,tier:0,orephellins:0,voisins:0,zeroVar:0,large:0,small:0,
-            odd:0,even:0,totalCount:0,
+            odd:0,even:0,totalCount:0,statsList:[],
             wheelNumbers:[]
         }
-
         
+       
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleRouletteBlur=this.handleRouletteBlur.bind(this);
         this.determineNumberIndex=this.determineNumberIndex.bind(this);
         this.handleLeftWheel=this.handleLeftWheel.bind(this)
         this.handleRightWheel=this.handleRightWheel.bind(this)
+        this.RetrieveStatsList=RetrieveStatsList.bind(this);
     }
 determineNumberIndex(rouletteType)
 { 
@@ -59,8 +60,8 @@ determineNumberIndex(rouletteType)
       listArr.push(actualIndex)
     }    
   })
-  console.log(rouletteType);
-  console.log(listArr);
+ //console.log(rouletteType);
+  //console.log(listArr);
   if(listArr.length==0)
   {
     index=0;
@@ -72,6 +73,37 @@ determineNumberIndex(rouletteType)
  
   return index
 }
+
+
+determineNumberStatsndex(rouletteType,statsList)
+{ 
+  let listArr=[]; 
+  let index=0;
+  let rouletteNumber=statsList
+  
+  rouletteType.forEach((item,index)=>
+  {  
+    let listIndex=rouletteNumber.lastIndexOf(item) 
+    if(listIndex!=-1)
+    {    
+      const actualIndex=rouletteNumber.length-listIndex
+      listArr.push(actualIndex)
+    }    
+  })
+ //console.log(rouletteType);
+  //console.log(listArr);
+  if(listArr.length==0)
+  {
+    index=0;
+  }
+  else{
+    index=Math.min.apply(null, listArr);
+  }
+  
+ 
+  return index
+}
+
 
 handleRouletteBlur(val)
 {
@@ -137,18 +169,28 @@ handleSubmit()
   this.setState({colList2:this.determineNumberIndex(rouletteConst.colList2)});
   this.setState({colList3:this.determineNumberIndex(rouletteConst.colList3)});
 
-  this.handleLeftWheel()
-  this.handleRightWheel()
+  this.handleLeftWheel();
+  this.handleRightWheel();
+  
+  //this.RetrieveStatsList(this.state.rouletteNumber)
+  
+}
+componentDidUpdate()
+{
+  //RetrieveStatsList(this.state.rouletteNumber)
 }
     
     render() {
         const rouList=this.state.rouletteNumber;
+        //RetrieveStatsList(this.state.rouletteNumber)
+        //RetrieveStatsList(this.state.rouletteNumber)
         const displayStats=<DisplayStatistics stats={this.state}></DisplayStatistics>
         const displayRouletteDetails= <DisplayRouletteDetails stats={this.state.rouletteNumber}></DisplayRouletteDetails>
+        const totalStats=  <RetrieveStatsList statsList={this.state.rouletteNumber}></RetrieveStatsList>
         const panes = [
           { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
           { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
-          
+          { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> }
         ]
         const TabsPointing = () => (
           <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
@@ -157,17 +199,13 @@ handleSubmit()
           <Image src='images/RouletteImage.jpg' size='medium' circular />
         )
         return (
+          
             <div >
-         
+       
                 
          <Label circular color="red" >{this.state.rouletteNumber.length} Rounds</Label>
-                  
-                 
                 <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
-              
-                
-
-    <div>
+   <div>
     <InputGroup> 
     <InputGroup.Prepend>
       <InputGroup.Text>Enter Roulette Numbers</InputGroup.Text>
@@ -192,10 +230,7 @@ handleSubmit()
                     </Row>
                     <h3>Betting Numbers</h3>
                     <DisplayWheelNumbers wheelNumbers={this.state.wheelNumbers}/>
-                    
-                    
-                   
-                </Container>
+              </Container>
     
     <TabsPointing></TabsPointing>
   
