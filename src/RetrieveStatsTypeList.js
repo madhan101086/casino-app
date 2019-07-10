@@ -1,6 +1,9 @@
 import React from 'react'
 import HandleNumberLocation from './DetermineStatsList'
 import { Table } from 'semantic-ui-react'
+import DetermineLabel from './DetermineRouletteType'
+import { Label } from 'semantic-ui-react'
+import DetermineCountLabel from './DetermineLargeCountLabel'
 const RetrieveStatsList=(props)=>
 {
     //console.log(props.statsList)
@@ -17,35 +20,57 @@ const RetrieveStatsList=(props)=>
         
        var result= HandleNumberLocation(updatedStatsList)
         result.outcome=statsList[i];
-       console.log(result)
+        
+       //console.log(result)
+       const outcomeColorLabel=DetermineLabel(result.outcome)
+       const redColorLabel=DetermineCountLabel(result.redCount)
+       const blackColorLabel=DetermineCountLabel(result.blackCount)
+       const smallColorLabel=DetermineCountLabel(result.small)
+       const largeColorLabel=DetermineCountLabel(result.large)
+       const oddColorLabel=DetermineCountLabel(result.odd)
+       const evenColorLabel=DetermineCountLabel(result.even)
+       const rightColorLabel=DetermineCountLabel(result.rightWheel)
+       const leftColorLabel=DetermineCountLabel(result.leftWheel)
+       const zeroColorLabel=DetermineCountLabel(result.zeroVar)
+       const voisinsColorLabel=DetermineCountLabel(result.voisins)
+       const orphellinsColorLabel=DetermineCountLabel(result.orephellins)
+       const tierColorLabel=DetermineCountLabel(result.tier)
+       const rowList1ColorLabel=DetermineCountLabel(result.rowList1)
+       const rowList2ColorLabel=DetermineCountLabel(result.rowList2)
+       const rowList3ColorLabel=DetermineCountLabel(result.rowList3)      
+       const colList1ColorLabel=DetermineCountLabel(result.colList1)
+       const colList2ColorLabel=DetermineCountLabel(result.colList2)
+       const colList3ColorLabel=DetermineCountLabel(result.colList3)
+
+       //console.log(outcomeLabel)
        
        results.push(result);
        const tableRow=( <Table.Row>
-        <Table.Cell>{result.redCount}</Table.Cell>
-        <Table.Cell>{result.blackCount}</Table.Cell>
-        <Table.Cell>{result.small}</Table.Cell>
-        <Table.Cell>{result.large}</Table.Cell>
-        <Table.Cell>{result.odd}</Table.Cell>
-        <Table.Cell>{result.even}</Table.Cell>
-        <Table.Cell>{result.rightWheel}</Table.Cell>
-        <Table.Cell>{result.leftWheel}</Table.Cell>
-        <Table.Cell>{result.zeroVar}</Table.Cell>
-        <Table.Cell>{result.voisins}</Table.Cell>
-        <Table.Cell>{result.orephellins}</Table.Cell>
-        <Table.Cell>{result.tier}</Table.Cell>
-        <Table.Cell>{result.rowList1}</Table.Cell>
-        <Table.Cell>{result.rowList2}</Table.Cell>
-        <Table.Cell>{result.rowList3}</Table.Cell>
-        <Table.Cell>{result.colList1}</Table.Cell>
-        <Table.Cell>{result.colList2}</Table.Cell>
-        <Table.Cell>{result.colList3}</Table.Cell>
-        <Table.Cell>{result.outcome}</Table.Cell>
+        <Table.Cell>{redColorLabel}</Table.Cell>
+        <Table.Cell>{blackColorLabel}</Table.Cell>
+        <Table.Cell>{smallColorLabel}</Table.Cell>
+        <Table.Cell>{largeColorLabel}</Table.Cell>
+        <Table.Cell>{oddColorLabel}</Table.Cell>
+        <Table.Cell>{evenColorLabel}</Table.Cell>
+        <Table.Cell>{rightColorLabel}</Table.Cell>
+        <Table.Cell>{leftColorLabel}</Table.Cell>
+        <Table.Cell>{zeroColorLabel}</Table.Cell>
+        <Table.Cell>{voisinsColorLabel}</Table.Cell>
+        <Table.Cell>{orphellinsColorLabel}</Table.Cell>
+        <Table.Cell>{tierColorLabel}</Table.Cell>
+        <Table.Cell>{rowList1ColorLabel}</Table.Cell>
+        <Table.Cell>{rowList2ColorLabel}</Table.Cell>
+        <Table.Cell>{rowList3ColorLabel}</Table.Cell>
+        <Table.Cell>{colList1ColorLabel}</Table.Cell>
+        <Table.Cell>{colList2ColorLabel}</Table.Cell>
+        <Table.Cell>{colList3ColorLabel}</Table.Cell>
+        <Table.Cell>{outcomeColorLabel}</Table.Cell>
       </Table.Row>)
       rowList.push(tableRow);
     }
   
     const diplayTable=(
-        <Table stackable sortable>
+        <Table celled striped selectable role="grid" aria-labelledby="header" stackable sortable>
           <Table.Header>
             <Table.Row>
             <Table.HeaderCell>Red</Table.HeaderCell>

@@ -10,7 +10,7 @@ const DisplayRouletteDetails = (props) =>
  // props.stats.rouletteNumber;
   rouletteNumber.forEach((item,id)=>{
     const result = rouletteConst.rouList.find( rouNumber => rouNumber.number == item );
-    console.log(item)
+   // console.log(item)
     const idLabel=(<Label circular color="purple" key={id}>{id+1}</Label>)
     let redBlackColor="";
     let wheelColor=""

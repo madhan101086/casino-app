@@ -33,7 +33,7 @@ function DetermineNumberIndex(rouletteType,statsList)
 }
 function HandleNumberLocation(statsList)
 {
-   console.log(statsList)
+   //console.log(statsList)
     let rouletteType={};
    rouletteType.redCount=DetermineNumberIndex(rouletteConst.redList,statsList);
    rouletteType.blackCount=DetermineNumberIndex(rouletteConst.blacklist,statsList);
