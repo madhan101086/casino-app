@@ -4,6 +4,7 @@ import { Table } from 'semantic-ui-react'
 import DetermineLabel from './DetermineRouletteType'
 import { Label } from 'semantic-ui-react'
 import DetermineCountLabel from './DetermineLargeCountLabel'
+import './style.css'
 const RetrieveStatsList=(props)=>
 {
     //console.log(props.statsList)
@@ -22,6 +23,7 @@ const RetrieveStatsList=(props)=>
         result.outcome=statsList[i];
         
        //console.log(result)
+       const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
        const outcomeColorLabel=DetermineLabel(result.outcome)
        const redColorLabel=DetermineCountLabel(result.redCount)
        const blackColorLabel=DetermineCountLabel(result.blackCount)
@@ -46,6 +48,7 @@ const RetrieveStatsList=(props)=>
        
        results.push(result);
        const tableRow=( <Table.Row>
+           <Table.Cell>{roundLabel}</Table.Cell>
         <Table.Cell>{redColorLabel}</Table.Cell>
         <Table.Cell>{blackColorLabel}</Table.Cell>
         <Table.Cell>{smallColorLabel}</Table.Cell>
@@ -70,9 +73,10 @@ const RetrieveStatsList=(props)=>
     }
   
     const diplayTable=(
-        <Table celled striped selectable role="grid" aria-labelledby="header" stackable sortable>
+        <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
+            <Table.HeaderCell>Round</Table.HeaderCell>
             <Table.HeaderCell>Red</Table.HeaderCell>
               <Table.HeaderCell>Black</Table.HeaderCell>
               <Table.HeaderCell>Small</Table.HeaderCell>

@@ -16,11 +16,11 @@ const DetermineCountLabel=(resultingNumber)=>
     }
     else if(resultingNumber==0)
     {
-        labelColor="pink"
+        labelColor="olive"
     }
     else
     {
-        labelColor="blue"
+        labelColor="teal"
     }
     const outcomeColorLabel=(<Label circular color={labelColor} >{resultingNumber}</Label>)
     console.log("outcome label")

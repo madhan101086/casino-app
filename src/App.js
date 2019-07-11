@@ -34,7 +34,8 @@ class App extends React.Component {
             colList3:0,
             leftWheel:0,rightWheel:0,tier:0,orephellins:0,voisins:0,zeroVar:0,large:0,small:0,
             odd:0,even:0,totalCount:0,statsList:[],
-            wheelNumbers:[]
+            wheelNumbers:[],
+            outcomeNumber:null
         }
         
        
@@ -107,21 +108,21 @@ determineNumberStatsndex(rouletteType,statsList)
 
 handleRouletteBlur(val)
 {
+  
+    let valList=val.split(",");
+    valList.forEach(item=>{
+      this.setState(pre=>{
+        let preArr=pre.rouletteNumber;
+        if(item)
+        {
+          preArr.push(Number(item))
+        }
+        
 
-let valList=val.split(",");
-
-valList.forEach(item=>{
-  this.setState(pre=>{
-    let preArr=pre.rouletteNumber;
-    if(item)
-    {
-      preArr.push(Number(item))
-    }
-    
-
-  return {rouletteNumber:preArr}
-  })
-})
+      return {rouletteNumber:preArr}
+      })
+    })
+  
 
 }   
 handleLeftWheel()
@@ -171,6 +172,7 @@ handleSubmit()
 
   this.handleLeftWheel();
   this.handleRightWheel();
+  this.setState({outcomeNumber:null})
   
   //this.RetrieveStatsList(this.state.rouletteNumber)
   
@@ -210,7 +212,7 @@ componentDidUpdate()
     <InputGroup.Prepend>
       <InputGroup.Text>Enter Roulette Numbers</InputGroup.Text>
     </InputGroup.Prepend>
-    <FormControl as="textarea" aria-label="Enter Roulette Numbers" onBlur={(evt)=>
+    <FormControl  as="textarea" aria-label="Enter Roulette Numbers" onBlur={(evt)=>
       {
         
         this.handleRouletteBlur(evt.target.value)
