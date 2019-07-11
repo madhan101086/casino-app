@@ -13,6 +13,8 @@ import { Tab } from 'semantic-ui-react'
 import { Icon, Image, Statistic,Label } from 'semantic-ui-react'
 import DisplayRouletteDetails from "./DisplayRouletteNumberDetails"
 import RetrieveStatsList from "./RetrieveStatsTypeList"
+import DetermineIndividualNumberStats from "./DetermineIndividualNumberStats"
+import DetermineIndividualLargeNumberStats from "./DetermineIndividualLargeStats"
 
 import './style.css'
 
@@ -35,9 +37,10 @@ class App extends React.Component {
             leftWheel:0,rightWheel:0,tier:0,orephellins:0,voisins:0,zeroVar:0,large:0,small:0,
             odd:0,even:0,totalCount:0,statsList:[],
             wheelNumbers:[],
-            outcomeNumber:null
+            outcomeNumber:null,
+            rouletteNumberText:""
         }
-        
+        this.rouletteText=React.createRef();
        
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleRouletteBlur=this.handleRouletteBlur.bind(this);
@@ -45,6 +48,7 @@ class App extends React.Component {
         this.handleLeftWheel=this.handleLeftWheel.bind(this)
         this.handleRightWheel=this.handleRightWheel.bind(this)
         this.RetrieveStatsList=RetrieveStatsList.bind(this);
+        this.handleRouletteNumberText=this.handleRouletteNumberText.bind(this)
     }
 determineNumberIndex(rouletteType)
 { 
@@ -108,7 +112,7 @@ determineNumberStatsndex(rouletteType,statsList)
 
 handleRouletteBlur(val)
 {
-  
+  //val=this.state.rouletteNumberText
     let valList=val.split(",");
     valList.forEach(item=>{
       this.setState(pre=>{
@@ -125,6 +129,11 @@ handleRouletteBlur(val)
   
 
 }   
+handleRouletteNumberText(value)
+{
+  this.setState({rouletteNumberText:value})
+  this.handleRouletteBlur()
+}
 handleLeftWheel()
 {
   let count=this.determineNumberIndex(rouletteConst.leftWheelList)
@@ -148,8 +157,9 @@ handleRightWheel()
 
 handleSubmit()
 {
+  //this.handleRouletteBlur()
   this.setState({wheelNumbers:[]})
- 
+  this.rouletteText.current.value=""
 
   this.setState({redCount:this.determineNumberIndex(rouletteConst.redList)});
   this.setState({blackCount:this.determineNumberIndex(rouletteConst.blacklist)});
@@ -173,8 +183,9 @@ handleSubmit()
   this.handleLeftWheel();
   this.handleRightWheel();
   this.setState({outcomeNumber:null})
-  
+  //this.rouletteText.value="";
   //this.RetrieveStatsList(this.state.rouletteNumber)
+  this.rouletteText.current.focus()
   
 }
 componentDidUpdate()
@@ -189,10 +200,15 @@ componentDidUpdate()
         const displayStats=<DisplayStatistics stats={this.state}></DisplayStatistics>
         const displayRouletteDetails= <DisplayRouletteDetails stats={this.state.rouletteNumber}></DisplayRouletteDetails>
         const totalStats=  <RetrieveStatsList statsList={this.state.rouletteNumber}></RetrieveStatsList>
+        const smallNumberStats= <DetermineIndividualNumberStats statsList={this.state.rouletteNumber}></DetermineIndividualNumberStats>
+        const largeNumberStats= <DetermineIndividualLargeNumberStats statsList={this.state.rouletteNumber}></DetermineIndividualLargeNumberStats>
+        
         const panes = [
           { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
           { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
-          { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> }
+          { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> },
+          { menuItem: 'Small Stats', render: () => <Tab.Pane attached={false}>{smallNumberStats}</Tab.Pane> },
+          { menuItem: 'Large Stats', render: () => <Tab.Pane attached={false}>{largeNumberStats}</Tab.Pane> }
         ]
         const TabsPointing = () => (
           <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
@@ -204,7 +220,7 @@ componentDidUpdate()
           
             <div >
        
-                
+       
          <Label circular color="red" >{this.state.rouletteNumber.length} Rounds</Label>
                 <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
    <div>
@@ -217,9 +233,11 @@ componentDidUpdate()
         
         this.handleRouletteBlur(evt.target.value)
       }
-        
 
-      }/>
+      }
+      
+      ref={this.rouletteText}
+      />
   </InputGroup>
   </div>
                 

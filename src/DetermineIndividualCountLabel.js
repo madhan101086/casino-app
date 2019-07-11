@@ -2,25 +2,25 @@ import React from "react"
 import rouletteConst from "./rouletteConstants"
 import { Label } from 'semantic-ui-react'
 
-const DetermineCountLabel=(resultingNumber)=>
+const DetermineIndividualCountLabel=(resultingNumber)=>
 {
     
     let labelColor="";
-    if(resultingNumber>=10 && resultingNumber<20)
+    if(resultingNumber>=50 && resultingNumber<75)
     {
         labelColor="orange"
     }
-    else if(resultingNumber>=5 && resultingNumber<10)
+    else if(resultingNumber>=75 && resultingNumber<90)
     {
         labelColor="purple"
     }
-    else if(resultingNumber>=20)
+    else if(resultingNumber>=90)
     {
         labelColor="red"
     }
     else if(resultingNumber==0)
     {
-        labelColor="olive"
+        labelColor="black"
     }
     else
     {
@@ -31,5 +31,4 @@ const DetermineCountLabel=(resultingNumber)=>
     console.log(outcomeColorLabel)
     return outcomeColorLabel
 }
-//export default DetermineRouletteType;
-export default DetermineCountLabel
+export default DetermineIndividualCountLabel
