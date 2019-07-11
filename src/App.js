@@ -197,6 +197,43 @@ componentDidUpdate()
         const rouList=this.state.rouletteNumber;
         //RetrieveStatsList(this.state.rouletteNumber)
         //RetrieveStatsList(this.state.rouletteNumber)
+        
+        const mainStats=(
+          <div>
+          <Label circular color="red" >{this.state.rouletteNumber.length} Rounds</Label>
+          <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
+           <div>
+           <InputGroup> 
+           <InputGroup.Prepend>
+             <InputGroup.Text>Enter Roulette Numbers</InputGroup.Text>
+           </InputGroup.Prepend>
+           <FormControl  as="textarea" aria-label="Enter Roulette Numbers" onBlur={(evt)=>
+             {
+               
+               this.handleRouletteBlur(evt.target.value)
+             }
+       
+             }
+             
+             ref={this.rouletteText}
+             />
+         </InputGroup>
+           </div>
+           
+           <Container>
+
+             <Row>
+               <Col>
+               <Button variant="outline-success" onClick={this.handleSubmit}>Get Stats</Button>
+               </Col>
+               </Row>
+               <h3>Betting Numbers</h3>
+               <DisplayWheelNumbers wheelNumbers={this.state.wheelNumbers}/>
+         </Container>
+
+
+</div>
+        )
         const displayStats=<DisplayStatistics stats={this.state}></DisplayStatistics>
         const displayRouletteDetails= <DisplayRouletteDetails stats={this.state.rouletteNumber}></DisplayRouletteDetails>
         const totalStats=  <RetrieveStatsList statsList={this.state.rouletteNumber}></RetrieveStatsList>
@@ -204,7 +241,7 @@ componentDidUpdate()
         const largeNumberStats= <DetermineIndividualLargeNumberStats statsList={this.state.rouletteNumber}></DetermineIndividualLargeNumberStats>
         
         const panes = [
-          { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
+          { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{mainStats}{displayStats}</Tab.Pane> },
           { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
           { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> },
           { menuItem: 'Small Stats', render: () => <Tab.Pane attached={false}>{smallNumberStats}</Tab.Pane> },
@@ -218,43 +255,10 @@ componentDidUpdate()
         )
         return (
           
-            <div >
-       
-       
-         <Label circular color="red" >{this.state.rouletteNumber.length} Rounds</Label>
-                <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
-   <div>
-    <InputGroup> 
-    <InputGroup.Prepend>
-      <InputGroup.Text>Enter Roulette Numbers</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl  as="textarea" aria-label="Enter Roulette Numbers" onBlur={(evt)=>
-      {
-        
-        this.handleRouletteBlur(evt.target.value)
-      }
-
-      }
-      
-      ref={this.rouletteText}
-      />
-  </InputGroup>
-  </div>
-                
-                <Container>
-
-                  <Row>
-                    <Col>
-                    <Button variant="outline-success" onClick={this.handleSubmit}>Get Stats</Button>
-                    </Col>
-                    </Row>
-                    <h3>Betting Numbers</h3>
-                    <DisplayWheelNumbers wheelNumbers={this.state.wheelNumbers}/>
-              </Container>
+    <div >
+         <TabsPointing></TabsPointing>
     
-    <TabsPointing></TabsPointing>
-  
-            </div>
+    </div>
         )    
     }
 }
