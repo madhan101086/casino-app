@@ -24,8 +24,8 @@ const DetermineLabel=(outcomeNumber)=>
         labelColor="green"
     }
     const outcomeColorLabel=(<Label circular color={labelColor} >{outcomeNumber}</Label>)
-    console.log("outcome label")
-    console.log(outcomeColorLabel)
+   // console.log("outcome label")
+   // console.log(outcomeColorLabel)
     return outcomeColorLabel
 }
 //export default DetermineRouletteType;

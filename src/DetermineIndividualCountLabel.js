@@ -27,8 +27,8 @@ const DetermineIndividualCountLabel=(resultingNumber)=>
         labelColor="teal"
     }
     const outcomeColorLabel=(<Label circular color={labelColor} >{resultingNumber}</Label>)
-    console.log("outcome label")
-    console.log(outcomeColorLabel)
+    //console.log("outcome label")
+   // console.log(outcomeColorLabel)
     return outcomeColorLabel
 }
 export default DetermineIndividualCountLabel

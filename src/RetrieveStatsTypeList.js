@@ -4,6 +4,7 @@ import { Table } from 'semantic-ui-react'
 import DetermineLabel from './DetermineRouletteType'
 import { Label } from 'semantic-ui-react'
 import DetermineCountLabel from './DetermineLargeCountLabel'
+import RouletteTypeMaxStats from "./DetermineRouletteTypeMaxStats"
 import './style.css'
 const RetrieveStatsList=(props)=>
 {
@@ -71,7 +72,7 @@ const RetrieveStatsList=(props)=>
       </Table.Row>)
       rowList.push(tableRow);
     }
-  
+    let maxOutcomeCount=RouletteTypeMaxStats(results);
     const diplayTable=(
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>

@@ -2,6 +2,8 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 import { Label } from 'semantic-ui-react'
 import DetermineIndividualCountLabel from './DetermineIndividualCountLabel'
+import IndividualNumberMaxStats from "./DetermineIndividualNumMaxStats"
+import DisplayIndNumLabel from "./DetermineIndividualNumCountLabel"
 
 import './style.css'
 const DetermineIndividualLargeNumberStats=(props)=>
@@ -21,8 +23,8 @@ const DetermineIndividualLargeNumberStats=(props)=>
         }
       var result=  handleIndividualStats(updatedStatsList)
       result.outcome=statsList[i];
-
       results.push(result);
+      
       const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
       const outcomeColorLabel=DetermineIndividualCountLabel(result.outcome)
       const _0Label=DetermineIndividualCountLabel(result._19)
@@ -70,9 +72,11 @@ const DetermineIndividualLargeNumberStats=(props)=>
    </Table.Row>)
    smallRowList.push(tableRow);
     }
-    console.log("number result")
-    console.log(results)
+    let maxOutcomeCount=IndividualNumberMaxStats(results);
+    //IndividualNumberMaxStats(results);
+   const disNum= DisplayIndNumLabel(maxOutcomeCount);
     const diplayTable=(
+        <div>
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
@@ -106,6 +110,9 @@ const DetermineIndividualLargeNumberStats=(props)=>
            {smallRowList}
           </Table.Body>
         </Table>
+        
+        {disNum}
+        </div>
       )
     return diplayTable
     
