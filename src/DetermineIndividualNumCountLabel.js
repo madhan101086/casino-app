@@ -6,8 +6,8 @@ import { Icon, Image, Statistic } from 'semantic-ui-react'
 import DetermineLabel from "./DetermineRouletteType"
 const DisplayIndNumLabel=(maxOutcome)=>
 {
-    console.log("maxOutcomeCount")
-    console.log(maxOutcome);
+   // console.log("maxOutcomeCount")
+    //console.log(maxOutcome);
     const _0={count:maxOutcome._0,label:"0"};
     const _1={count:maxOutcome._1,label:"1"};
     const _2={count:maxOutcome._2,label:"2"};
@@ -140,8 +140,8 @@ const DisplayIndNumLabel=(maxOutcome)=>
 const DisplayMaxCountStats= (outcome) => 
   
    {
-    console.log("outcome Label Result");   
-    console.log(outcome);
+    //console.log("outcome Label Result");   
+    //console.log(outcome);
     let colorLabel="olive";
     const countLabel=DetermineLabel(Number(outcome.label));
     if(outcome.count>=100 && outcome.count<150)

@@ -175,4 +175,75 @@ function indexCalc(statsList,number)
     
     return index
 }
-export default DetermineIndividualLargeNumberStats
+
+const GetIndividualNumberStats=(statsList)=>
+{
+   let results=[];
+  
+    //const statsList=props.statsList;
+    var result=  handleIndividualStats(statsList)
+    result.outcome=statsList[statsList.length-1];
+    
+    //let maxOutcomeCount=IndividualNumberMaxStats(results);
+    console.log(result)
+    let bettingNumbers=getBettingNumbers(result)
+    console.log(bettingNumbers)
+    return bettingNumbers
+}    
+
+function getBettingNumbers(maxOutcomeCount)
+{
+  let bettingNumbers=[];
+  
+  checkBettingNumber(bettingNumbers,0,maxOutcomeCount._0,150);
+  checkBettingNumber(bettingNumbers,1,maxOutcomeCount._1,150);
+  checkBettingNumber(bettingNumbers,2,maxOutcomeCount._2,150);
+  checkBettingNumber(bettingNumbers,3,maxOutcomeCount._3,150);
+  checkBettingNumber(bettingNumbers,4,maxOutcomeCount._4,150);
+  checkBettingNumber(bettingNumbers,5,maxOutcomeCount._5,150);
+  checkBettingNumber(bettingNumbers,6,maxOutcomeCount._6,150);
+  checkBettingNumber(bettingNumbers,7,maxOutcomeCount._7,150);
+  checkBettingNumber(bettingNumbers,8,maxOutcomeCount._8,150);
+  checkBettingNumber(bettingNumbers,9,maxOutcomeCount._9,150);
+  checkBettingNumber(bettingNumbers,10,maxOutcomeCount._10,150);
+  checkBettingNumber(bettingNumbers,11,maxOutcomeCount._11,150);
+  checkBettingNumber(bettingNumbers,12,maxOutcomeCount._12,150);
+  checkBettingNumber(bettingNumbers,13,maxOutcomeCount._13,150);
+  checkBettingNumber(bettingNumbers,14,maxOutcomeCount._14,150);
+  checkBettingNumber(bettingNumbers,15,maxOutcomeCount._15,150);
+  checkBettingNumber(bettingNumbers,16,maxOutcomeCount._16,150);
+  checkBettingNumber(bettingNumbers,17,maxOutcomeCount._17,150);
+  checkBettingNumber(bettingNumbers,18,maxOutcomeCount._18,150);
+  checkBettingNumber(bettingNumbers,19,maxOutcomeCount._19,150);
+  checkBettingNumber(bettingNumbers,20,maxOutcomeCount._20,150);
+  checkBettingNumber(bettingNumbers,21,maxOutcomeCount._21,150);
+  checkBettingNumber(bettingNumbers,22,maxOutcomeCount._22,150);
+  checkBettingNumber(bettingNumbers,23,maxOutcomeCount._23,150);
+  checkBettingNumber(bettingNumbers,24,maxOutcomeCount._24,150);
+  checkBettingNumber(bettingNumbers,25,maxOutcomeCount._25,150);
+  checkBettingNumber(bettingNumbers,26,maxOutcomeCount._26,150);
+  checkBettingNumber(bettingNumbers,27,maxOutcomeCount._27,150);
+  checkBettingNumber(bettingNumbers,28,maxOutcomeCount._28,150);
+  checkBettingNumber(bettingNumbers,29,maxOutcomeCount._29,150);
+  checkBettingNumber(bettingNumbers,30,maxOutcomeCount._30,150);
+  checkBettingNumber(bettingNumbers,31,maxOutcomeCount._31,150);
+  checkBettingNumber(bettingNumbers,32,maxOutcomeCount._32,70);
+  checkBettingNumber(bettingNumbers,33,maxOutcomeCount._33,150);
+  checkBettingNumber(bettingNumbers,34,maxOutcomeCount._34,150);
+  checkBettingNumber(bettingNumbers,35,maxOutcomeCount._35,150);
+  checkBettingNumber(bettingNumbers,36,maxOutcomeCount._36,150);
+
+  
+  return bettingNumbers
+}
+
+function checkBettingNumber(bettingNumbers,num,numCount,checkCount)
+{
+  if(numCount>checkCount)
+  {
+    bettingNumbers.push(num);
+  }
+  return bettingNumbers
+}
+//export default DetermineIndividualLargeNumberStats
+export {GetIndividualNumberStats,DetermineIndividualLargeNumberStats}

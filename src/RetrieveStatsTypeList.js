@@ -5,6 +5,7 @@ import DetermineLabel from './DetermineRouletteType'
 import { Label } from 'semantic-ui-react'
 import DetermineCountLabel from './DetermineLargeCountLabel'
 import RouletteTypeMaxStats from "./DetermineRouletteTypeMaxStats"
+import DisplayRouletteTypeNumLabel from "./DisplayRouletteTypeNumLabel"
 import './style.css'
 const RetrieveStatsList=(props)=>
 {
@@ -22,7 +23,7 @@ const RetrieveStatsList=(props)=>
         
        var result= HandleNumberLocation(updatedStatsList)
         result.outcome=statsList[i];
-        
+        results.push(result);
        //console.log(result)
        const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
        const outcomeColorLabel=DetermineLabel(result.outcome)
@@ -47,7 +48,7 @@ const RetrieveStatsList=(props)=>
 
        //console.log(outcomeLabel)
        
-       results.push(result);
+       
        const tableRow=( <Table.Row>
            <Table.Cell>{roundLabel}</Table.Cell>
         <Table.Cell>{redColorLabel}</Table.Cell>
@@ -73,7 +74,9 @@ const RetrieveStatsList=(props)=>
       rowList.push(tableRow);
     }
     let maxOutcomeCount=RouletteTypeMaxStats(results);
+    const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
+      <div>
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
@@ -106,9 +109,62 @@ const RetrieveStatsList=(props)=>
            {rowList}
           </Table.Body>
         </Table>
+        {disNum}
+        </div>
       )
 //console.log(results);
   return diplayTable;
     
 }
-export default RetrieveStatsList;
+
+const GetTotalStats=(statsList)=>
+{
+ 
+  //const statsList=props.statsList;
+    let results=[];     
+     var result= HandleNumberLocation(statsList)
+      result.outcome=statsList[statsList.length-1];
+      
+  
+ 
+  console.log("Max Get Total Results")
+  //console.log(result);
+  let bettingType=getBettingNumbers(result)
+  return bettingType
+}
+function getBettingNumbers(result)
+{
+  let bettingType=[];
+  checkBettingNumber(bettingType,"Red",result.redCount,11);
+  checkBettingNumber(bettingType,"Black",result.blackCount,11);
+  checkBettingNumber(bettingType,"Odd",result.odd,11);
+  checkBettingNumber(bettingType,"Even",result.even,11);
+  checkBettingNumber(bettingType,"Small",result.small,11);
+  checkBettingNumber(bettingType,"Large",result.large,11);
+  checkBettingNumber(bettingType,"Right",result.rightWheel,10);
+  checkBettingNumber(bettingType,"Left",result.leftWheel,10);
+  checkBettingNumber(bettingType,"Zero",result.zeroVar,19);
+  checkBettingNumber(bettingType,"Voisins",result.voisins,11);
+  checkBettingNumber(bettingType,"Orphellins",result.orephellins,17);
+  checkBettingNumber(bettingType,"Tier",result.tier,11);
+  checkBettingNumber(bettingType,"Row 1-12",result.rowList1,15);
+  checkBettingNumber(bettingType,"Row 13-24",result.rowList2,15);
+  checkBettingNumber(bettingType,"Row 25-36",result.rowList3,15);
+  checkBettingNumber(bettingType,"Col 1",result.colList1,4);
+  checkBettingNumber(bettingType,"Col 2",result.colList2,15);
+  checkBettingNumber(bettingType,"Col 3",result.colList3,15);
+  
+
+  //console.log(bettingType)
+  return bettingType
+}
+function checkBettingNumber(bettingType,rouletteType,numCount,checkCount)
+{
+  if(numCount>checkCount)
+  {
+    bettingType.push(rouletteType);
+  }
+  return bettingType
+}
+//export default RetrieveStatsList;
+export {GetTotalStats,RetrieveStatsList}

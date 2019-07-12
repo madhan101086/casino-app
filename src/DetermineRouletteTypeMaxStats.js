@@ -52,8 +52,8 @@ const RouletteTypeMaxStats=(results)=>
    maxOutcomeResult.colList3=Math.max.apply(null, maxOutcome._col3Arr);
   
   
-   console.log("Roulette Type Max")
-    console.log(maxOutcomeResult)
+   //console.log("Roulette Type Max")
+  //  console.log(maxOutcomeResult)
    //console.log("Max Outcome");
    //console.log(maxOutcomeResult)
 return maxOutcomeResult;

@@ -70,8 +70,8 @@ const DetermineIndividualNumberStats=(props)=>
    </Table.Row>)
    smallRowList.push(tableRow);
     }
-    console.log("number result")
-    console.log(results)
+    //console.log("number result")
+   // console.log(results)
     const diplayTable=(
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
