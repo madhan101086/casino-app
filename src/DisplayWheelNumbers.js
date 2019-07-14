@@ -4,13 +4,16 @@ import rouletteConst from "./rouletteConstants"
 
 
 const DisplayWheelNumbers = (props) => (
+ 
   <div>
     {
-        props.wheelNumbers.map((item,id) => 
+       
+       props.wheelNumbers.map((item,id) => 
             
-           
+       
            { 
-              let labelColor=""
+            
+            let labelColor=""
               let labelList=[];
                 if(rouletteConst.redList.includes(item))
                 {

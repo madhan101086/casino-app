@@ -83,7 +83,7 @@ const DisplayIndNumLabel=(maxOutcome)=>
    const _34Stats=DisplayMaxCountStats(_34)
    const _35Stats=DisplayMaxCountStats(_35)
    const _36Stats=DisplayMaxCountStats(_36)
-   const countGroup=(<div> <Statistic.Group widths='thirteen'>
+   const countGroup=(<div> <Statistic.Group widths='ten'>
                   {_0Stats}
                   {_1Stats}
                   {_2Stats}
@@ -97,14 +97,15 @@ const DisplayIndNumLabel=(maxOutcome)=>
                   {_10Stats}
                   {_11Stats}
                   {_12Stats}
-                 
-                  </Statistic.Group>
-                  <Statistic.Group widths='thirteen'>
                   {_13Stats}
                   {_14Stats}
                   {_15Stats}
                   {_16Stats}
                   {_17Stats}
+                  </Statistic.Group>
+                  <Statistic.Group widths='ten'>
+                  
+                
                   {_18Stats}
                   {_19Stats}
                   {_20Stats}
@@ -112,11 +113,6 @@ const DisplayIndNumLabel=(maxOutcome)=>
                   {_22Stats}
                   {_23Stats}
                   {_24Stats}
-                 
-                 
-                 
-                  </Statistic.Group>
-                  <Statistic.Group widths='thirteen'>
                   {_25Stats}
                   {_26Stats}
                   {_27Stats}
@@ -129,6 +125,11 @@ const DisplayIndNumLabel=(maxOutcome)=>
                   {_34Stats}
                   {_35Stats}
                   {_36Stats}
+                 
+                 
+                  </Statistic.Group>
+                  <Statistic.Group widths='ten'>
+                  
                   
                  
                   </Statistic.Group>

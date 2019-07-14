@@ -7,7 +7,7 @@ const DisplayStatistics = (props) =>
  
  const ele=( <div>
   <Statistic.Group widths='seven'>
-  <DisplayRouletteStats count={props.stats.redCount} label="Red" color="red"/>
+                  <DisplayRouletteStats count={props.stats.redCount} label="Red" color="red"/>
                   <DisplayRouletteStats count={props.stats.blackCount} label="Black" color="black"/>
                   <DisplayRouletteStats count={props.stats.small} label="Small" color="orange"/>
                   <DisplayRouletteStats count={props.stats.large} label="Large" color="green"/>

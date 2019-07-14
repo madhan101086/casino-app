@@ -16,6 +16,31 @@ const odd=[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35];
 const even=[2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36];
 const small=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
 const large=[19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
+const corn_0_1_2_3=[0,1,2,3];
+const corn_1_2_4_5=[1,2,4,5];
+const corn_2_3_5_6=[2,3,5,6];
+const corn_4_5_7_8=[4,5,7,8];
+const corn_5_6_8_9=[5,6,8,9];
+const corn_7_8_10_11=[7,8,10,11];
+const corn_8_9_11_12=[8,9,11,12];
+const corn_10_11_13_14=[10,11,13,14];
+const corn_11_12_14_15=[11,12,14,15];
+const corn_13_14_16_17=[13,14,16,17];
+const corn_14_15_17_18=[14,15,17,18];
+const corn_16_17_19_20=[16,17,19,20];
+const corn_17_18_20_21=[17,18,20,21];
+const corn_19_20_22_23=[19,20,22,23];
+const corn_20_21_23_24=[20,21,23,24];
+const corn_22_23_25_26=[22,23,25,26];
+const corn_23_24_26_27=[23,24,26,27];
+const corn_25_26_28_29=[25,26,28,29];
+const corn_26_27_29_30=[26,27,29,30];
+const corn_28_29_31_32=[28,29,31,32];
+const corn_29_30_32_33=[29,30,32,33];
+const corn_31_32_34_35=[31,32,34,35];
+const corn_32_33_35_36=[32,33,35,36];
+
+
 const rouList=[
     {number:1,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins"},
     {number:2,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"voisins"},
@@ -62,6 +87,12 @@ const rouList=[
 ];
 const rouletteConst={
     redList:redList,blacklist,rowList1,rowList2,rowList3,colList1,colList2,colList3,leftWheelList,rightWheelList,
-    tierList,orphelinsList,voisinsList,zeroList,odd,even,small,large,rouList
+    tierList,orphelinsList,voisinsList,zeroList,odd,even,small,large,rouList,corn_0_1_2_3,corn_1_2_4_5,
+    corn_2_3_5_6,corn_4_5_7_8,corn_5_6_8_9,corn_7_8_10_11,corn_8_9_11_12,corn_10_11_13_14,corn_11_12_14_15,
+    corn_13_14_16_17,corn_14_15_17_18,corn_16_17_19_20,corn_17_18_20_21,corn_19_20_22_23,corn_20_21_23_24,
+    corn_22_23_25_26,corn_23_24_26_27,corn_25_26_28_29,corn_26_27_29_30,corn_28_29_31_32,corn_29_30_32_33,
+    corn_31_32_34_35,corn_32_33_35_36
 };
+
+
 export default rouletteConst

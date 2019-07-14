@@ -1,10 +1,10 @@
 import React from 'react'
-import HandleNumberLocation from './DetermineStatsList'
+import {HandleNumberLocation} from './DetermineStatsList'
 import { Table } from 'semantic-ui-react'
 import DetermineLabel from './DetermineRouletteType'
 import { Label } from 'semantic-ui-react'
 import DetermineCountLabel from './DetermineLargeCountLabel'
-import RouletteTypeMaxStats from "./DetermineRouletteTypeMaxStats"
+import {RouletteTypeMaxStats} from "./DetermineRouletteTypeMaxStats"
 import DisplayRouletteTypeNumLabel from "./DisplayRouletteTypeNumLabel"
 import './style.css'
 const RetrieveStatsList=(props)=>
@@ -150,7 +150,7 @@ function getBettingNumbers(result)
   checkBettingNumber(bettingType,"Row 1-12",result.rowList1,15);
   checkBettingNumber(bettingType,"Row 13-24",result.rowList2,15);
   checkBettingNumber(bettingType,"Row 25-36",result.rowList3,15);
-  checkBettingNumber(bettingType,"Col 1",result.colList1,4);
+  checkBettingNumber(bettingType,"Col 1",result.colList1,15);
   checkBettingNumber(bettingType,"Col 2",result.colList2,15);
   checkBettingNumber(bettingType,"Col 3",result.colList3,15);
   

@@ -185,9 +185,9 @@ const GetIndividualNumberStats=(statsList)=>
     result.outcome=statsList[statsList.length-1];
     
     //let maxOutcomeCount=IndividualNumberMaxStats(results);
-    console.log(result)
+   // console.log(result)
     let bettingNumbers=getBettingNumbers(result)
-    console.log(bettingNumbers)
+    //console.log(bettingNumbers)
     return bettingNumbers
 }    
 
@@ -227,7 +227,7 @@ function getBettingNumbers(maxOutcomeCount)
   checkBettingNumber(bettingNumbers,29,maxOutcomeCount._29,150);
   checkBettingNumber(bettingNumbers,30,maxOutcomeCount._30,150);
   checkBettingNumber(bettingNumbers,31,maxOutcomeCount._31,150);
-  checkBettingNumber(bettingNumbers,32,maxOutcomeCount._32,70);
+  checkBettingNumber(bettingNumbers,32,maxOutcomeCount._32,150);
   checkBettingNumber(bettingNumbers,33,maxOutcomeCount._33,150);
   checkBettingNumber(bettingNumbers,34,maxOutcomeCount._34,150);
   checkBettingNumber(bettingNumbers,35,maxOutcomeCount._35,150);
