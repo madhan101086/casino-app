@@ -136,4 +136,45 @@ const RouletteCornerFourTypeMaxStats=(results)=>
 return maxOutcomeResult;
 }
 
-export {RouletteCornerFourTypeMaxStats,RouletteTypeMaxStats} ;
+const RouletteCornerThreeTypeMaxStats=(results)=>
+{
+   
+    let maxOutcome={
+        corn_1_2_3:[],corn_4_5_6:[],corn_7_8_9:[],corn_10_11_12:[],corn_13_14_15:[],
+        corn_16_17_18:[],corn_19_20_21:[],corn_22_23_24:[],corn_25_26_27:[],
+        corn_28_29_30:[],corn_31_32_33:[],corn_34_35_36:[]
+
+   };
+  
+   let maxOutcomeResult={};
+   results.forEach(item => {
+    maxOutcome.corn_1_2_3.push(item.corn_1_2_3);
+    maxOutcome.corn_4_5_6.push(item.corn_4_5_6);
+    maxOutcome.corn_7_8_9.push(item.corn_7_8_9);
+    maxOutcome.corn_10_11_12.push(item.corn_10_11_12);
+    maxOutcome.corn_13_14_15.push(item.corn_13_14_15);
+    maxOutcome.corn_16_17_18.push(item.corn_16_17_18);
+    maxOutcome.corn_19_20_21.push(item.corn_19_20_21);
+    maxOutcome.corn_22_23_24.push(item.corn_22_23_24);
+    maxOutcome.corn_25_26_27.push(item.corn_25_26_27);
+    maxOutcome.corn_28_29_30.push(item.corn_28_29_30);
+    maxOutcome.corn_31_32_33.push(item.corn_31_32_33);
+    maxOutcome.corn_34_35_36.push(item.corn_34_35_36);
+   });
+   maxOutcomeResult.corn_1_2_3=Math.max.apply(null, maxOutcome.corn_1_2_3);
+   maxOutcomeResult.corn_4_5_6=Math.max.apply(null, maxOutcome.corn_4_5_6);
+   maxOutcomeResult.corn_7_8_9=Math.max.apply(null, maxOutcome.corn_7_8_9);
+   maxOutcomeResult.corn_10_11_12=Math.max.apply(null, maxOutcome.corn_10_11_12);
+   maxOutcomeResult.corn_13_14_15=Math.max.apply(null, maxOutcome.corn_13_14_15);
+   maxOutcomeResult.corn_16_17_18=Math.max.apply(null, maxOutcome.corn_16_17_18);
+   maxOutcomeResult.corn_19_20_21=Math.max.apply(null, maxOutcome.corn_19_20_21);
+   maxOutcomeResult.corn_22_23_24=Math.max.apply(null, maxOutcome.corn_22_23_24);
+   maxOutcomeResult.corn_25_26_27=Math.max.apply(null, maxOutcome.corn_25_26_27);
+   maxOutcomeResult.corn_28_29_30=Math.max.apply(null, maxOutcome.corn_28_29_30);
+   maxOutcomeResult.corn_31_32_33=Math.max.apply(null, maxOutcome.corn_31_32_33);
+   maxOutcomeResult.corn_34_35_36=Math.max.apply(null, maxOutcome.corn_34_35_36);
+   return maxOutcomeResult;
+
+}
+
+export {RouletteCornerFourTypeMaxStats,RouletteTypeMaxStats,RouletteCornerThreeTypeMaxStats} ;

@@ -92,4 +92,25 @@ function HandleFourCornerNumberLocation(statsList)
    return rouletteType;
 }
 
-export {HandleNumberLocation,HandleFourCornerNumberLocation} ;
+function HandleThreeCornerNumberLocation(statsList)
+{
+  let rouletteType={};
+
+
+   rouletteType.corn_1_2_3=DetermineNumberIndex(rouletteConst.corn_1_2_3,statsList);
+   rouletteType.corn_4_5_6=DetermineNumberIndex(rouletteConst.corn_4_5_6,statsList);
+   rouletteType.corn_7_8_9=DetermineNumberIndex(rouletteConst.corn_7_8_9,statsList);
+   rouletteType.corn_10_11_12=DetermineNumberIndex(rouletteConst.corn_10_11_12,statsList);
+   rouletteType.corn_13_14_15=DetermineNumberIndex(rouletteConst.corn_13_14_15,statsList);
+   rouletteType.corn_16_17_18=DetermineNumberIndex(rouletteConst.corn_16_17_18,statsList);
+   rouletteType.corn_19_20_21=DetermineNumberIndex(rouletteConst.corn_19_20_21,statsList);
+   rouletteType.corn_22_23_24=DetermineNumberIndex(rouletteConst.corn_22_23_24,statsList);
+   rouletteType.corn_25_26_27=DetermineNumberIndex(rouletteConst.corn_25_26_27,statsList);
+   rouletteType.corn_28_29_30=DetermineNumberIndex(rouletteConst.corn_28_29_30,statsList);
+   rouletteType.corn_31_32_33=DetermineNumberIndex(rouletteConst.corn_31_32_33,statsList);
+   rouletteType.corn_34_35_36=DetermineNumberIndex(rouletteConst.corn_34_35_36,statsList);
+   return rouletteType;
+
+}
+
+export {HandleNumberLocation,HandleFourCornerNumberLocation,HandleThreeCornerNumberLocation} ;

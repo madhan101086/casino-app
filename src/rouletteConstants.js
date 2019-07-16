@@ -39,6 +39,19 @@ const corn_28_29_31_32=[28,29,31,32];
 const corn_29_30_32_33=[29,30,32,33];
 const corn_31_32_34_35=[31,32,34,35];
 const corn_32_33_35_36=[32,33,35,36];
+const corn_1_2_3=[1,2,3];
+const corn_4_5_6=[4,5,6];
+const corn_7_8_9=[7,8,9];
+const corn_10_11_12=[10,11,12];
+const corn_13_14_15=[13,14,15];
+const corn_16_17_18=[16,17,18];
+const corn_19_20_21=[19,20,21];
+const corn_22_23_24=[22,23,24];
+const corn_25_26_27=[25,26,27];
+const corn_28_29_30=[28,29,30];
+const corn_31_32_33=[31,32,33];
+const corn_34_35_36=[34,35,36];
+
 
 
 const rouList=[
@@ -85,13 +98,16 @@ const rouList=[
     {number:36,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers"},
     {number:0,color:"green",numberRange:"zero",rowList:"zero",colList:"zero",type:"zero",wheelType:"zero",box:"zero"}
 ];
+
+
 const rouletteConst={
     redList:redList,blacklist,rowList1,rowList2,rowList3,colList1,colList2,colList3,leftWheelList,rightWheelList,
     tierList,orphelinsList,voisinsList,zeroList,odd,even,small,large,rouList,corn_0_1_2_3,corn_1_2_4_5,
     corn_2_3_5_6,corn_4_5_7_8,corn_5_6_8_9,corn_7_8_10_11,corn_8_9_11_12,corn_10_11_13_14,corn_11_12_14_15,
     corn_13_14_16_17,corn_14_15_17_18,corn_16_17_19_20,corn_17_18_20_21,corn_19_20_22_23,corn_20_21_23_24,
     corn_22_23_25_26,corn_23_24_26_27,corn_25_26_28_29,corn_26_27_29_30,corn_28_29_31_32,corn_29_30_32_33,
-    corn_31_32_34_35,corn_32_33_35_36
+    corn_31_32_34_35,corn_32_33_35_36,corn_1_2_3,corn_4_5_6,corn_7_8_9,corn_10_11_12,corn_13_14_15,
+    corn_16_17_18,corn_19_20_21,corn_22_23_24,corn_25_26_27,corn_28_29_30,corn_31_32_33,corn_34_35_36
 };
 
 
