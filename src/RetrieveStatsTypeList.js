@@ -125,11 +125,16 @@ const GetTotalStats=(statsList)=>
      var result= HandleNumberLocation(statsList)
       result.outcome=statsList[statsList.length-1];
       
-  
+  var bettingNumberResult={};
  
   console.log("Max Get Total Results")
   //console.log(result);
-  let bettingType=getBettingNumbers(result)
+  let bettingType=getBettingNumbers(result);
+  bettingNumberResult.numbers=bettingType;
+  bettingType.forEach((item,id)=>{
+    
+  })
+
   return bettingType
 }
 function getBettingNumbers(result)

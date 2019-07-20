@@ -154,8 +154,21 @@ const GetTotalCornerFourStats=(statsList)=>
  
   console.log("Max Get Total Croner Four Results")
   //console.log(result);
-  let bettingType=getBettingNumbers(result)
-  return bettingType
+  let outcome={};
+
+  outcome.bettingType=getBettingNumbers(result)
+  outcome.result=result;
+  outcome.nei=[];
+
+  outcome.bettingType.forEach((item,id)=>{
+    const numberDetails = rouletteConst.rouList.find( rouNumber => rouNumber.number == item );
+    numberDetails.nei.forEach((item)=>{
+      outcome.nei.push(item);
+    })
+  })
+
+  console.log(outcome)
+  return outcome
 }
 
 
@@ -188,14 +201,14 @@ function getBettingNumbers(result)
   checkBettingNumber(bettingType,rouletteConst.corn_29_30_32_33,result.corn_29_30_32_33,55);     
   checkBettingNumber(bettingType,rouletteConst.corn_31_32_34_35,result.corn_31_32_34_35,55);  
   checkBettingNumber(bettingType,rouletteConst.corn_32_33_35_36,result.corn_32_33_35_36,55);  
-  console.log(bettingType)
+  //console.log(bettingType)
   return bettingType
 }
 function checkBettingNumber(bettingType,rouletteType,numCount,checkCount)
 {
   if(numCount>checkCount)
   {
-   console.log(rouletteType)
+   //console.log(rouletteType)
     rouletteType.forEach((item,id)=>
     {
         bettingType.push(item);

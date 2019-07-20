@@ -18,6 +18,9 @@ import {DetermineIndividualLargeNumberStats,GetIndividualNumberStats} from "./De
 import {GetTotalStats ,RetrieveStatsList}from "./RetrieveStatsTypeList"
 import {RetrieveCornerFourList,GetTotalCornerFourStats} from "./RetrieveCornerFour"
 import {RetrieveCornerThreeList,GetTotalCorneThreeStats} from "./RetrieveCornerThree"
+import DisplayNumberDetails from "./DisplayNumbersWithNeighbours"
+import DisplayCurrentNumberStatistics from "./DisplayCurrentIndividualNumberStats"
+import DisplayNeighbourNumbers from "./DisplayNeighbourNumber"
 import './style.css'
 
 
@@ -45,7 +48,10 @@ class App extends React.Component {
             roueletteTypeBetting:[],
             cornerFourBetting:[],
             cornerThreeBetting:[],
-            cornerThreeStats:{}
+            cornerThreeStats:{},
+            cornerFourStats:{},
+            
+            currentIndividualNumberStats:{}
         }
         this.rouletteText=React.createRef();
        
@@ -193,16 +199,22 @@ handleSubmit()
   this.setState({outcomeNumber:null})
   
   const indvBetting=GetIndividualNumberStats(this.state.rouletteNumber);
+  console.log("indvBetting");
+  console.log(indvBetting);
   const rouletteTypeBetting=GetTotalStats(this.state.rouletteNumber);
-  const cornerFourBetting=GetTotalCornerFourStats(this.state.rouletteNumber);
-  const cornerThreeOutcome=GetTotalCorneThreeStats(this.state.rouletteNumber)
+  const cornerFourOutcome=GetTotalCornerFourStats(this.state.rouletteNumber);
+  const cornerThreeOutcome=GetTotalCorneThreeStats(this.state.rouletteNumber);
   const cornerThreeBetting=cornerThreeOutcome.bettingType;
   const cornerThreeStats=cornerThreeOutcome.result;
-  this.setState({individualNumBetting:indvBetting,
+  const cornerFourBetting=cornerFourOutcome.bettingType;
+  const cornerFourStats=cornerFourOutcome.result;
+  this.setState({individualNumBetting:indvBetting.outcome,
+    currentIndividualNumberStats:indvBetting.result,
     roueletteTypeBetting:rouletteTypeBetting,
     cornerFourBetting:cornerFourBetting,
     cornerThreeBetting:cornerThreeBetting,
-    cornerThreeStats:cornerThreeStats
+    cornerThreeStats:cornerThreeStats,
+    cornerFourStats:cornerFourStats
   })
   console.log(this.state); 
   //this.rouletteText.value="";
@@ -255,7 +267,7 @@ componentDidUpdate()
                <h3>Rouletting Betting Type</h3>
                <Label circular color="purple" >{this.state.roueletteTypeBetting.join(" ,")} </Label>
                <h3>Individual Num Betting</h3>
-               <DisplayWheelNumbers wheelNumbers={this.state.individualNumBetting}/>
+               <DisplayNumberDetails wheelNumbers={this.state.individualNumBetting}/>
                <h3> Corner Four Betting</h3>
                <DisplayWheelNumbers wheelNumbers={this.state.cornerFourBetting}/>
                <h3> Corner Three Betting</h3>
@@ -269,15 +281,19 @@ componentDidUpdate()
 </div>
         )
         const displayStats=<DisplayStatistics stats={this.state}></DisplayStatistics>
+       const individualStats=<DisplayCurrentNumberStatistics stats={this.state.currentIndividualNumberStats} />
         const displayRouletteDetails= <DisplayRouletteDetails stats={this.state.rouletteNumber}></DisplayRouletteDetails>
         const totalStats=  <RetrieveStatsList statsList={this.state.rouletteNumber}></RetrieveStatsList>
         const smallNumberStats= <DetermineIndividualNumberStats statsList={this.state.rouletteNumber}></DetermineIndividualNumberStats>
         const largeNumberStats= <DetermineIndividualLargeNumberStats statsList={this.state.rouletteNumber}></DetermineIndividualLargeNumberStats>
         const cornerFourStats=<RetrieveCornerFourList statsList={this.state.rouletteNumber}/>     
         const cornerThreeStats=<RetrieveCornerThreeList statsList={this.state.rouletteNumber}/>    
+        const neighbourNumbers=<DisplayNeighbourNumbers/>
         const panes = [
           { menuItem: 'Main Betting', render: () => <Tab.Pane attached={false}>{mainStats}</Tab.Pane> },
           { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
+          { menuItem: 'Individual Stats', render: () => <Tab.Pane attached={false}>{individualStats}</Tab.Pane> },
+          { menuItem: 'Neignbours', render: () => <Tab.Pane attached={false}>{neighbourNumbers}</Tab.Pane> },
           { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
           { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> },
           { menuItem: 'Small Stats', render: () => <Tab.Pane attached={false}>{smallNumberStats}</Tab.Pane> },

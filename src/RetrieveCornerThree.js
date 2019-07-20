@@ -126,6 +126,15 @@ const GetTotalCorneThreeStats=(statsList)=>
 
   outcome.bettingType=getBettingNumbers(result)
   outcome.result=result;
+  outcome.nei=[];
+
+  outcome.bettingType.forEach((item,id)=>{
+    const numberDetails = rouletteConst.rouList.find( rouNumber => rouNumber.number == item );
+    numberDetails.nei.forEach((item)=>{
+      outcome.nei.push(item);
+    })
+  })
+
   return outcome
 }
 
@@ -137,18 +146,18 @@ function getBettingNumbers(result)
 {
   let bettingType=[];
  
-  checkBettingNumber(bettingType,rouletteConst.corn_1_2_3,result.corn_1_2_3,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_4_5_6,result.corn_4_5_6,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_7_8_9,result.corn_7_8_9,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_10_11_12,result.corn_10_11_12,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_13_14_15,result.corn_13_14_15,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_16_17_18,result.corn_16_17_18,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_19_20_21,result.corn_19_20_21,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_22_23_24,result.corn_22_23_24,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_25_26_27,result.corn_25_26_27,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_28_29_30,result.corn_28_29_30,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_31_32_33,result.corn_31_32_33,70);
-  checkBettingNumber(bettingType,rouletteConst.corn_34_35_36,result.corn_34_35_36,70);
+  checkBettingNumber(bettingType,rouletteConst.corn_1_2_3,result.corn_1_2_3,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_4_5_6,result.corn_4_5_6,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_7_8_9,result.corn_7_8_9,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_10_11_12,result.corn_10_11_12,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_13_14_15,result.corn_13_14_15,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_16_17_18,result.corn_16_17_18,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_19_20_21,result.corn_19_20_21,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_22_23_24,result.corn_22_23_24,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_25_26_27,result.corn_25_26_27,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_28_29_30,result.corn_28_29_30,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_31_32_33,result.corn_31_32_33,75);
+  checkBettingNumber(bettingType,rouletteConst.corn_34_35_36,result.corn_34_35_36,75);
 
   
   return bettingType

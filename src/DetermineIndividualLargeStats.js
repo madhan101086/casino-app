@@ -4,6 +4,7 @@ import { Label } from 'semantic-ui-react'
 import DetermineIndividualCountLabel from './DetermineIndividualCountLabel'
 import IndividualNumberMaxStats from "./DetermineIndividualNumMaxStats"
 import DisplayIndNumLabel from "./DetermineIndividualNumCountLabel"
+import rouletteConst from "./rouletteConstants"
 
 import './style.css'
 const DetermineIndividualLargeNumberStats=(props)=>
@@ -187,8 +188,23 @@ const GetIndividualNumberStats=(statsList)=>
     //let maxOutcomeCount=IndividualNumberMaxStats(results);
    // console.log(result)
     let bettingNumbers=getBettingNumbers(result)
-    //console.log(bettingNumbers)
-    return bettingNumbers
+    let outcome=[];
+   let  outcomeResult={};
+    bettingNumbers.forEach((item,id)=>{
+      let outcomeDetails={};
+      outcomeDetails.actualNumber=item;
+      outcomeDetails.neighbours=[];
+      const numberDetails = rouletteConst.rouList.find( rouNumber => rouNumber.number == item );
+      numberDetails.nei.forEach((item)=>{
+        outcomeDetails.neighbours.push(item);
+      })
+      outcome.push(outcomeDetails);
+    })
+    outcomeResult.outcome=outcome;
+    outcomeResult.result=result;
+    console.log("Number outcome")
+    console.log(outcomeResult)
+    return outcomeResult
 }    
 
 function getBettingNumbers(maxOutcomeCount)
@@ -239,7 +255,7 @@ function getBettingNumbers(maxOutcomeCount)
 
 function checkBettingNumber(bettingNumbers,num,numCount,checkCount)
 {
-  if(numCount>checkCount)
+  if(numCount>50)
   {
     bettingNumbers.push(num);
   }
