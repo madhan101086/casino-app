@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 import { Label } from 'semantic-ui-react'
 import DetermineIndividualCountLabel from './DetermineIndividualCountLabel'
-
+import DetermineLabel from './DetermineRouletteType'
 import './style.css'
 const DetermineIndividualNumberStats=(props)=>
 {
@@ -24,7 +24,7 @@ const DetermineIndividualNumberStats=(props)=>
 
       results.push(result);
       const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
-      const outcomeColorLabel=DetermineIndividualCountLabel(result.outcome)
+      const outcomeColorLabel=DetermineLabel(result.outcome)
       const _0Label=DetermineIndividualCountLabel(result._0)
       const _1Label=DetermineIndividualCountLabel(result._1)
       const _2Label=DetermineIndividualCountLabel(result._2)

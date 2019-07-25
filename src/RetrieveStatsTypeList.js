@@ -146,18 +146,18 @@ function getBettingNumbers(result)
   checkBettingNumber(bettingType,"Even",result.even,11);
   checkBettingNumber(bettingType,"Small",result.small,11);
   checkBettingNumber(bettingType,"Large",result.large,11);
-  checkBettingNumber(bettingType,"Right",result.rightWheel,10);
-  checkBettingNumber(bettingType,"Left",result.leftWheel,10);
-  checkBettingNumber(bettingType,"Zero",result.zeroVar,19);
+  checkBettingNumber(bettingType,"Right",result.rightWheel,13);
+  checkBettingNumber(bettingType,"Left",result.leftWheel,13);
+  checkBettingNumber(bettingType,"Zero",result.zeroVar,22);
   checkBettingNumber(bettingType,"Voisins",result.voisins,11);
-  checkBettingNumber(bettingType,"Orphellins",result.orephellins,17);
-  checkBettingNumber(bettingType,"Tier",result.tier,11);
-  checkBettingNumber(bettingType,"Row 1-12",result.rowList1,15);
-  checkBettingNumber(bettingType,"Row 13-24",result.rowList2,15);
-  checkBettingNumber(bettingType,"Row 25-36",result.rowList3,15);
-  checkBettingNumber(bettingType,"Col 1",result.colList1,15);
-  checkBettingNumber(bettingType,"Col 2",result.colList2,15);
-  checkBettingNumber(bettingType,"Col 3",result.colList3,15);
+  checkBettingNumber(bettingType,"Orphellins",result.orephellins,22);
+  checkBettingNumber(bettingType,"Tier",result.tier,15);
+  checkBettingNumber(bettingType,"Row 1-12",result.rowList1,20);
+  checkBettingNumber(bettingType,"Row 13-24",result.rowList2,20);
+  checkBettingNumber(bettingType,"Row 25-36",result.rowList3,20);
+  checkBettingNumber(bettingType,"Col 1",result.colList1,20);
+  checkBettingNumber(bettingType,"Col 2",result.colList2,20);
+  checkBettingNumber(bettingType,"Col 3",result.colList3,20);
   
 
   //console.log(bettingType)

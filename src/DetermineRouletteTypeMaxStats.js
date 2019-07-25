@@ -177,4 +177,27 @@ const RouletteCornerThreeTypeMaxStats=(results)=>
 
 }
 
-export {RouletteCornerFourTypeMaxStats,RouletteTypeMaxStats,RouletteCornerThreeTypeMaxStats} ;
+const RouletteLeftRightTypeMaxStats=(results)=>
+{
+   
+    let maxOutcome={
+        LR_1:[],LR_2:[]
+
+   };
+  
+   let maxOutcomeResult={};
+   results.forEach(item => {
+    maxOutcome.LR_1.push(item.LR_1);
+    maxOutcome.LR_2.push(item.LR_2);
+    
+   });
+   maxOutcomeResult.LR_1=Math.max.apply(null, maxOutcome.LR_1);
+   maxOutcomeResult.LR_2=Math.max.apply(null, maxOutcome.LR_2);
+ 
+   return maxOutcomeResult;
+
+}
+
+
+
+export {RouletteCornerFourTypeMaxStats,RouletteTypeMaxStats,RouletteCornerThreeTypeMaxStats,RouletteLeftRightTypeMaxStats} ;

@@ -113,4 +113,16 @@ function HandleThreeCornerNumberLocation(statsList)
 
 }
 
-export {HandleNumberLocation,HandleFourCornerNumberLocation,HandleThreeCornerNumberLocation} ;
+function HandleLeftRightNumberLocation(statsList)
+{
+  let rouletteType={};
+
+
+   rouletteType.LR_1=DetermineNumberIndex(rouletteConst.LR_1,statsList);
+   rouletteType.LR_2=DetermineNumberIndex(rouletteConst.LR_2,statsList);
+  
+   return rouletteType;
+
+}
+
+export {HandleNumberLocation,HandleFourCornerNumberLocation,HandleThreeCornerNumberLocation,HandleLeftRightNumberLocation} ;

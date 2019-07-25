@@ -5,6 +5,7 @@ import DetermineIndividualCountLabel from './DetermineIndividualCountLabel'
 import IndividualNumberMaxStats from "./DetermineIndividualNumMaxStats"
 import DisplayIndNumLabel from "./DetermineIndividualNumCountLabel"
 import rouletteConst from "./rouletteConstants"
+import DetermineLabel from './DetermineRouletteType'
 
 import './style.css'
 const DetermineIndividualLargeNumberStats=(props)=>
@@ -27,7 +28,7 @@ const DetermineIndividualLargeNumberStats=(props)=>
       results.push(result);
       
       const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
-      const outcomeColorLabel=DetermineIndividualCountLabel(result.outcome)
+      const outcomeColorLabel=DetermineLabel(result.outcome)
       const _0Label=DetermineIndividualCountLabel(result._19)
       const _1Label=DetermineIndividualCountLabel(result._20)
       const _2Label=DetermineIndividualCountLabel(result._21)
@@ -255,7 +256,7 @@ function getBettingNumbers(maxOutcomeCount)
 
 function checkBettingNumber(bettingNumbers,num,numCount,checkCount)
 {
-  if(numCount>50)
+  if(numCount>200)
   {
     bettingNumbers.push(num);
   }
