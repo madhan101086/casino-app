@@ -105,6 +105,21 @@ const DisplayStatistics = (props) =>
                  </Statistic.Group>
 
                  <Divider horizontal> 
+                <Message info><Message.Header>Left Right Six Stats</Message.Header></Message></Divider>
+                <Statistic.Group widths={7}>
+
+ 
+<DisplayRouletteStats count={props.stats.leftRightStats.LR_1} label="0_2" color="orange"/>
+<DisplayRouletteStats count={props.stats.leftRightStats.LR_2} label="25_13" color="orange"/>
+<DisplayRouletteStats count={props.stats.leftRightStats.LR_3} label="36_10" color="orange"/>
+<DisplayRouletteStats count={props.stats.leftRightStats.LR_4} label="5_20" color="orange"/>
+<DisplayRouletteStats count={props.stats.leftRightStats.LR_5} label="14_29" color="orange"/>
+<DisplayRouletteStats count={props.stats.leftRightStats.LR_6} label="7_26" color="orange"/>
+  
+  
+ </Statistic.Group>
+
+                 <Divider horizontal> 
                 <Message info><Message.Header>Three Neighbour Stats</Message.Header></Message></Divider>
               <DisplayCurrenThreeNeighboutStatistics stats={props.stats.currentThreeNeighbourStats}/>
 

@@ -289,7 +289,7 @@ componentDidUpdate()
                <DisplayWheelNumbers wheelNumbers={this.state.cornerThreeBetting}/>
                <h3> Three Neighbour Betting</h3>
                <DisplayThreeNeighbourBetting wheelNumbers={this.state.threeNeighbourBetting}/>
-               <h3> Left Right Random Betting</h3>
+               <h3> Left Right Six Betting</h3>
                <DisplayWheelNumbers wheelNumbers={this.state.leftRightBetting}/>
                <h3>Outcome</h3>
                <DisplayWheelNumbers wheelNumbers={this.state.rouletteNumber}/>
@@ -311,8 +311,8 @@ componentDidUpdate()
         const neighbourNumbers=<DisplayNeighbourNumbers/>
         const panes = [
           { menuItem: 'Main Betting', render: () => <Tab.Pane attached={false}>{mainStats}</Tab.Pane> },
-          { menuItem: 'Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
-          { menuItem: 'Individual Stats', render: () => <Tab.Pane attached={false}>{individualStats}</Tab.Pane> },
+          { menuItem: 'Live Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
+          { menuItem: 'Live Individual Stats', render: () => <Tab.Pane attached={false}>{individualStats}</Tab.Pane> },
           { menuItem: 'Neighbour Look Up', render: () => <Tab.Pane attached={false}>{neighbourNumbers}</Tab.Pane> },
           { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
           { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> },
@@ -320,7 +320,7 @@ componentDidUpdate()
           { menuItem: 'Large Stats', render: () => <Tab.Pane attached={false}>{largeNumberStats}</Tab.Pane> },
           { menuItem: 'Corner Four Stats', render: () => <Tab.Pane attached={false}>{cornerFourStats}</Tab.Pane> },
           { menuItem: 'Corner Three Stats', render: () => <Tab.Pane attached={false}>{cornerThreeStats}</Tab.Pane> },
-          //{ menuItem: 'Left Right Stats', render: () => <Tab.Pane attached={false}>{leftRightStats}</Tab.Pane> },
+          { menuItem: 'Left Right Stats', render: () => <Tab.Pane attached={false}>{leftRightStats}</Tab.Pane> },
           { menuItem: 'Three Neighbour Stats', render: () => <Tab.Pane attached={false}>{threeNeighbourStats}</Tab.Pane> }
         ]
         const TabsPointing = () => (

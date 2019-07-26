@@ -181,7 +181,7 @@ const RouletteLeftRightTypeMaxStats=(results)=>
 {
    
     let maxOutcome={
-        LR_1:[],LR_2:[]
+        LR_1:[],LR_2:[],LR_3:[],LR_4:[],LR_5:[],LR_6:[]
 
    };
   
@@ -189,11 +189,18 @@ const RouletteLeftRightTypeMaxStats=(results)=>
    results.forEach(item => {
     maxOutcome.LR_1.push(item.LR_1);
     maxOutcome.LR_2.push(item.LR_2);
+    maxOutcome.LR_3.push(item.LR_3);
+    maxOutcome.LR_4.push(item.LR_4);
+    maxOutcome.LR_5.push(item.LR_5);
+    maxOutcome.LR_6.push(item.LR_6);
     
    });
    maxOutcomeResult.LR_1=Math.max.apply(null, maxOutcome.LR_1);
    maxOutcomeResult.LR_2=Math.max.apply(null, maxOutcome.LR_2);
- 
+   maxOutcomeResult.LR_3=Math.max.apply(null, maxOutcome.LR_3);
+   maxOutcomeResult.LR_4=Math.max.apply(null, maxOutcome.LR_4);
+   maxOutcomeResult.LR_5=Math.max.apply(null, maxOutcome.LR_5);
+   maxOutcomeResult.LR_6=Math.max.apply(null, maxOutcome.LR_6);
    return maxOutcomeResult;
 
 }

@@ -32,7 +32,10 @@ const RetrieveLeftRightNumberList=(props)=>
        const outcomeColorLabel=DetermineLabel(result.outcome)
        const LR_1Label=DetermineCountLabel(result.LR_1)
        const LR_2Label=DetermineCountLabel(result.LR_2)
-     
+       const LR_3Label=DetermineCountLabel(result.LR_3)
+       const LR_4Label=DetermineCountLabel(result.LR_4)
+       const LR_5Label=DetermineCountLabel(result.LR_5)
+       const LR_6Label=DetermineCountLabel(result.LR_6)
 
  
 
@@ -43,7 +46,10 @@ const RetrieveLeftRightNumberList=(props)=>
         <Table.Cell>{roundLabel}</Table.Cell>
         <Table.Cell>{LR_1Label}</Table.Cell>   
         <Table.Cell>{LR_2Label}</Table.Cell>
-
+        <Table.Cell>{LR_3Label}</Table.Cell>
+        <Table.Cell>{LR_4Label}</Table.Cell>
+        <Table.Cell>{LR_5Label}</Table.Cell>
+        <Table.Cell>{LR_6Label}</Table.Cell>
         <Table.Cell>{outcomeColorLabel}</Table.Cell>
       </Table.Row>)
       rowList.push(tableRow);
@@ -57,13 +63,17 @@ const RetrieveLeftRightNumberList=(props)=>
     //const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
       <div>
+         {displayMaxStats}
         <Table collapsing={true} >
           <Table.Header>
             <Table.Row>
             <Table.HeaderCell>Round</Table.HeaderCell>
             <Table.HeaderCell>LR_1</Table.HeaderCell>
             <Table.HeaderCell>LR_2</Table.HeaderCell>
-           
+            <Table.HeaderCell>LR_3</Table.HeaderCell>
+            <Table.HeaderCell>LR_4</Table.HeaderCell>
+            <Table.HeaderCell>LR_5</Table.HeaderCell>
+            <Table.HeaderCell>LR_6</Table.HeaderCell>
               <Table.HeaderCell>O</Table.HeaderCell> 
          
             </Table.Row>
@@ -74,7 +84,7 @@ const RetrieveLeftRightNumberList=(props)=>
            {rowList}
           </Table.Body>
         </Table>
-       {displayMaxStats}
+      
         </div>
       )
 //console.log(results);
@@ -118,15 +128,19 @@ const GetTotalLeftRightStats=(statsList)=>
 function getBettingNumbers(result)
 {
   let bettingType=[];
-  checkBettingNumber(bettingType,rouletteConst.corn_0_1_2_3,result.corn_0_1_2_3,55);
-  checkBettingNumber(bettingType,rouletteConst.corn_1_2_4_5,result.corn_1_2_4_5,55);
+  checkBettingNumber(bettingType,rouletteConst.LR_1,result.LR_1,17);
+  checkBettingNumber(bettingType,rouletteConst.LR_2,result.LR_2,17);
+  checkBettingNumber(bettingType,rouletteConst.LR_3,result.LR_3,17);
+  checkBettingNumber(bettingType,rouletteConst.LR_4,result.LR_4,17);
+  checkBettingNumber(bettingType,rouletteConst.LR_5,result.LR_5,17);
+  checkBettingNumber(bettingType,rouletteConst.LR_6,result.LR_6,17);
  
   //console.log(bettingType)
   return bettingType
 }
 function checkBettingNumber(bettingType,rouletteType,numCount,checkCount)
 {
-  if(numCount>checkCount)
+  if(numCount>17)
   {
    //console.log(rouletteType)
     rouletteType.forEach((item,id)=>

@@ -11,21 +11,30 @@ const DisplayLeftRightMaxStats=(maxOutcome)=>
   
     const LR_1={count:maxOutcome.LR_1,label:"LR_1"};
     const LR_2={count:maxOutcome.LR_2,label:"LR_2"};
-    
+    const LR_3={count:maxOutcome.LR_2,label:"LR_3"};
+    const LR_4={count:maxOutcome.LR_2,label:"LR_4"};
+    const LR_5={count:maxOutcome.LR_2,label:"LR_5"};
+    const LR_6={count:maxOutcome.LR_2,label:"LR_6"};
     
     
    
    
    const LR_1Label=DisplayMaxCountStats(LR_1)
    const LR_2Label=DisplayMaxCountStats(LR_2)
-
+   const LR_3Label=DisplayMaxCountStats(LR_3)
+   const LR_4Label=DisplayMaxCountStats(LR_4)
+   const LR_5Label=DisplayMaxCountStats(LR_5)
+   const LR_6Label=DisplayMaxCountStats(LR_6)
   
    
    const countGroup=(<div> <Statistic.Group widths='ten'>
                   
                   {LR_1Label}
                   {LR_2Label}
-                 
+                  {LR_3Label}
+                  {LR_4Label}
+                  {LR_5Label}
+                  {LR_6Label}
                   
                  
                   </Statistic.Group>

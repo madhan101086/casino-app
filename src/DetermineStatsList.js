@@ -120,7 +120,10 @@ function HandleLeftRightNumberLocation(statsList)
 
    rouletteType.LR_1=DetermineNumberIndex(rouletteConst.LR_1,statsList);
    rouletteType.LR_2=DetermineNumberIndex(rouletteConst.LR_2,statsList);
-  
+   rouletteType.LR_3=DetermineNumberIndex(rouletteConst.LR_3,statsList);
+   rouletteType.LR_4=DetermineNumberIndex(rouletteConst.LR_4,statsList);
+   rouletteType.LR_5=DetermineNumberIndex(rouletteConst.LR_5,statsList);
+   rouletteType.LR_6=DetermineNumberIndex(rouletteConst.LR_6,statsList);
    return rouletteType;
 
 }
