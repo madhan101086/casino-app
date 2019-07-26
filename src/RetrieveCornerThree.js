@@ -76,6 +76,7 @@ const RetrieveCornerThreeList=(props)=>
     //const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
       <div>
+        {displayMaxStats}
         <Table collapsing={true} >
           <Table.Header>
             <Table.Row>
@@ -102,7 +103,7 @@ const RetrieveCornerThreeList=(props)=>
            {rowList}
           </Table.Body>
         </Table>
-       {displayMaxStats}
+       
         </div>
       )
 //console.log(results);

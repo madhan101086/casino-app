@@ -88,54 +88,95 @@ const _33N=[16,1];
 const _34N=[17,6];
 const _35N=[12,3];
 const _36N=[13,11];
+//Three Neighbours
+
+const _0N3=[0,32,15,26,3,35,19];
+const _1N3=[20,14,31,1,33,16,24];
+const _2N3=[19,4,21,2,25,17,34];
+const _3N3=[28,12,35,26,0,32,15];
+const _4N3=[32,15,19,4,21,2,25];
+const _5N3=[24,16,33,5,10,23,8];
+const _6N3=[25,17,34,6,27,13,36];
+const _7N3=[22,18,29,7,28,12,35];
+const _8N3=[5,10,23,8,30,11,36];
+const _9N3=[20,14,31,9,22,18,29];
+const _10N3=[30,8,23,10,5,24,16];
+const _11N3=[27,13,36,11,30,8,23];
+const _12N3=[26,3,35,12,28,7,29];
+const _13N3=[34,6,27,13,36,11,30];
+const _14N3=[33,1,20,14,31,9,22];
+const _15N3=[26,0,32,15,19,4,21];
+const _16N3=[10,5,24,16,33,1,20];
+const _17N3=[21,2,25,17,34,6,27];
+const _18N3=[31,9,22,18,29,7,28];
+const _19N3=[0,32,15,19,4,21,2];
+const _20N3=[16,33,1,20,14,31,9];
+const _21N3=[15,19,4,21,2,25,17];
+const _22N3=[14,31,9,22,18,29,7];
+const _23N3=[11,30,8,23,10,5,24];
+const _24N3=[23,10,5,24,16,33,1];
+const _25N3=[4,21,2,25,17,34,6];
+const _26N3=[35,3,26,0,32,15,19];
+const _27N3=[17,34,6,27,13,36,11];
+const _28N3=[18,29,7,28,12,35,3];
+const _29N3=[9,22,18,29,7,28,12];
+const _30N3=[10,23,8,30,11,36,13];
+const _31N3=[1,20,14,31,9,22,18];
+const _32N3=[3,26,0,32,15,19,4];
+const _33N3=[5,24,16,33,1,20,14];
+const _34N3=[2,25,17,34,6,27,13];
+const _35N3=[7,28,12,35,3,26,0];
+const _36N3=[8,30,11,36,13,27,6];
+
 const LR_1=[1,5,0,12,19,31,17,3,8];
 const LR_2=[12,30,0,5,20,17,14,21,8,10];
 
 
 
+
 const rouList=[
-    {number:1,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins",nei:_1N},
-    {number:2,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"voisins",nei:_2N},
-    {number:3,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"zero",nei:_3N},
-    {number:4,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"even",wheelType:"right",box:"voisins",nei:_4N},
-    {number:5,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"odd",wheelType:"left",box:"tiers",nei:_5N},
-    {number:6,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"right",box:"orphelins",nei:_6N},
+    {number:1,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins",nei:_1N,_3Nei:_1N3},
+    {number:2,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"voisins",nei:_2N,_3Nei:_2N3},
+    {number:3,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"zero",nei:_3N,_3Nei:_3N3},
+    {number:4,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"even",wheelType:"right",box:"voisins",nei:_4N,_3Nei:_4N3},
+    {number:5,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"odd",wheelType:"left",box:"tiers",nei:_5N,_3Nei:_5N3},
+    {number:6,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"right",box:"orphelins",nei:_6N,_3Nei:_6N3},
 
-    {number:7,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins",nei:_7N},
-    {number:8,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"tiers",nei:_8N},
-    {number:9,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"orphellins",nei:_9N},
-    {number:10,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"even",wheelType:"right",box:"tiers",nei:_10N},
-    {number:11,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers",nei:_11N},
-    {number:12,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"left",box:"zero",nei:_12N},
+    {number:7,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"odd",wheelType:"left",box:"voisins",nei:_7N,_3Nei:_7N3},
+    {number:8,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"even",wheelType:"right",box:"tiers",nei:_8N,_3Nei:_8N3},
+    {number:9,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"odd",wheelType:"left",box:"orphellins",nei:_9N,_3Nei:_9N3},
+    {number:10,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList1",type:"even",wheelType:"right",box:"tiers",nei:_10N,_3Nei:_10N3},
+    {number:11,color:"black",numberRange:"small",rowList:"row1-12",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers",nei:_11N,_3Nei:_11N3},
+    {number:12,color:"red",numberRange:"small",rowList:"row1-12",colList:"ColList3",type:"even",wheelType:"left",box:"zero",nei:_12N,_3Nei:_12N3},
 
-    {number:13,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"tiers",nei:_13N},
-    {number:14,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins",nei:_14N},
-    {number:15,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"zero",nei:_15N},
-    {number:16,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"tiers",nei:_16N},
-    {number:17,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"orphellins",nei:_17N},
-    {number:18,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"voisins",nei:_18N},
+    {number:13,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"tiers",nei:_13N,_3Nei:_13N3},
+    {number:14,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins",nei:_14N,_3Nei:_14N3},
+    {number:15,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"zero",nei:_15N,_3Nei:_15N3},
+    {number:16,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"tiers",nei:_16N,_3Nei:_16N3},
+    {number:17,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"orphellins",nei:_17N,_3Nei:_17N3},
+    {number:18,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"voisins",nei:_18N,_3Nei:_18N3},
 
-    {number:19,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_19N},
-    {number:20,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins",nei:_20N},
-    {number:21,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"voisins",nei:_21N},
-    {number:22,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"voisins",nei:_22N},
-    {number:23,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers",nei:_23N},
-    {number:24,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"tiers",nei:_24N},
+    {number:19,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_19N,_3Nei:_19N3},
+    {number:20,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins",nei:_20N,_3Nei:_20N3},
+    {number:21,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"voisins",nei:_21N,_3Nei:_21N3},
+    {number:22,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"voisins",nei:_22N,_3Nei:_22N3},
+    {number:23,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers",nei:_23N,_3Nei:_23N3},
+    {number:24,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"tiers",nei:_24N,_3Nei:_24N3},
 
-    {number:25,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_25N},
-    {number:26,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"left",box:"zero",nei:_26N},
-    {number:27,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"odd",wheelType:"right",box:"tiers",nei:_27N},
-    {number:28,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"even",wheelType:"left",box:"voisins",nei:_28N},
-    {number:29,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"odd",wheelType:"left",box:"voisins",nei:_29N},
-    {number:30,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers",nei:_30N},
+    {number:25,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_25N,_3Nei:_25N3},
+    {number:26,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"left",box:"zero",nei:_26N,_3Nei:_26N3},
+    {number:27,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"odd",wheelType:"right",box:"tiers",nei:_27N,_3Nei:_27N3},
+    {number:28,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"even",wheelType:"left",box:"voisins",nei:_28N,_3Nei:_28N3},
+    {number:29,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"odd",wheelType:"left",box:"voisins",nei:_29N,_3Nei:_29N3},
+    {number:30,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers",nei:_30N,_3Nei:_30N3},
 
-    {number:31,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"left",box:"orphellins",nei:_31N},
-    {number:32,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"right",box:"zero",nei:_32N},
-    {number:33,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"odd",wheelType:"left",box:"tiers",nei:_33N},
-    {number:34,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"even",wheelType:"right",box:"orphellins",nei:_34N},
-    {number:35,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"odd",wheelType:"left",box:"voisins",nei:_35N},
-    {number:36,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers",nei:_36N},
-    {number:0,color:"green",numberRange:"zero",rowList:"zero",colList:"zero",type:"zero",wheelType:"zero",box:"zero",nei:_0N}
+    {number:31,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"left",box:"orphellins",nei:_31N,_3Nei:_31N3},
+    {number:32,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"right",box:"zero",nei:_32N,_3Nei:_32N3},
+    {number:33,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"odd",wheelType:"left",box:"tiers",nei:_33N,_3Nei:_33N3},
+    {number:34,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"even",wheelType:"right",box:"orphellins",nei:_34N,_3Nei:_34N3},
+    {number:35,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"odd",wheelType:"left",box:"voisins",nei:_35N,_3Nei:_35N3},
+    {number:36,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList3",type:"even",wheelType:"right",box:"tiers",nei:_36N,_3Nei:_36N3},
+    {number:0,color:"green",numberRange:"zero",rowList:"zero",colList:"zero",type:"zero",wheelType:"zero",box:"zero",nei:_0N,_3Nei:_0N3}
 ];
 
 
@@ -148,7 +189,9 @@ const rouletteConst={
     corn_31_32_34_35,corn_32_33_35_36,corn_1_2_3,corn_4_5_6,corn_7_8_9,corn_10_11_12,corn_13_14_15,
     corn_16_17_18,corn_19_20_21,corn_22_23_24,corn_25_26_27,corn_28_29_30,corn_31_32_33,corn_34_35_36,
     _0N,_2N,_3N,_4N,_5N,_6N,_7N,_8N,_9N,_10N,_11N,_12N,_13N,_14N,_15N,_16N,_17N,_18N,
-    _19N,_20N,_21N,_22N,_23N,_24N,_25N,_26N,_27N,_28N,_29N,_30N,_31N,_32N,_33N,_34N,_35N,_36N,LR_1,LR_2
+    _19N,_20N,_21N,_22N,_23N,_24N,_25N,_26N,_27N,_28N,_29N,_30N,_31N,_32N,_33N,_34N,_35N,_36N,LR_1,LR_2,
+    _0N3,_1N3,_2N3,_3N3,_4N3,_5N3,_6N3,_7N3,_8N3,_9N3,_10N3,_11N3,_12N3,_13N3,_14N3,_15N3,_16N3,_17N3,_18N3,
+    _19N3,_20N3,_21N3,_22N3,_23N3,_24N3,_25N3,_26N3,_27N3,_28N3,_29N3,_30N3,_31N3,_32N3,_33N3,_34N3,_35N3,_36N3
 };
 
 

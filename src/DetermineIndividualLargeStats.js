@@ -79,6 +79,7 @@ const DetermineIndividualLargeNumberStats=(props)=>
    const disNum= DisplayIndNumLabel(maxOutcomeCount);
     const diplayTable=(
         <div>
+           {disNum}
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
@@ -113,7 +114,7 @@ const DetermineIndividualLargeNumberStats=(props)=>
           </Table.Body>
         </Table>
         
-        {disNum}
+       
         </div>
       )
     return diplayTable

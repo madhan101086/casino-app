@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon, Image, Statistic,Divider,Message } from 'semantic-ui-react'
 import DisplayRouletteStats from "./DisplayRouletteStats"
+import DisplayCurrenThreeNeighboutStatistics from "./DisplayCurrentThreeNeighbourStats"
 
 const DisplayStatistics = (props) => 
 {
@@ -103,6 +104,9 @@ const DisplayStatistics = (props) =>
                   
                  </Statistic.Group>
 
+                 <Divider horizontal> 
+                <Message info><Message.Header>Three Neighbour Stats</Message.Header></Message></Divider>
+              <DisplayCurrenThreeNeighboutStatistics stats={props.stats.currentThreeNeighbourStats}/>
 
 
 

@@ -77,6 +77,7 @@ const RetrieveStatsList=(props)=>
     const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
       <div>
+        {disNum}
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
@@ -109,7 +110,7 @@ const RetrieveStatsList=(props)=>
            {rowList}
           </Table.Body>
         </Table>
-        {disNum}
+        
         </div>
       )
 //console.log(results);

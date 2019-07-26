@@ -4,7 +4,7 @@ import rouletteConst from "./rouletteConstants"
 import { Table } from 'semantic-ui-react'
 
 
-const DisplayNumberDetails = (props) => 
+const DisplayThreeNeighbourBetting = (props) => 
 {
   
        let rowList=[]
@@ -14,10 +14,16 @@ const DisplayNumberDetails = (props) =>
         let numberLabel= determineNumberLabel(item.actualNumber)
         let nei_1=determineNumberLabel(item.neighbours[0])
         let nei_2=determineNumberLabel(item.neighbours[1])
+        let nei_3=determineNumberLabel(item.neighbours[2])
+        let nei_4=determineNumberLabel(item.neighbours[3])
+        let nei_5=determineNumberLabel(item.neighbours[4])
+        let nei_6=determineNumberLabel(item.neighbours[5])
+        let nei_7=determineNumberLabel(item.neighbours[6])
+       
         const tableRow=( <Table.Row>
             <Table.Cell>{numberLabel}</Table.Cell>
             
-            <Table.Cell>{nei_1}{nei_2}</Table.Cell>
+            <Table.Cell>{nei_1}{nei_2}{nei_3}{nei_4}{nei_5}{nei_6}{nei_7}</Table.Cell>
           </Table.Row>)
           rowList.push(tableRow);         
         })
@@ -68,4 +74,4 @@ const determineNumberLabel=(numberIn) =>
 
 
 
-  export default DisplayNumberDetails;
+  export default DisplayThreeNeighbourBetting;

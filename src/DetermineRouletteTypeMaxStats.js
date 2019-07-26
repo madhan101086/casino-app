@@ -198,6 +198,103 @@ const RouletteLeftRightTypeMaxStats=(results)=>
 
 }
 
+const RouletteThreeNeighbourMaxStats=(results)=>
+{
+   
+    let maxOutcome={
+        _0N3:[],_1N3:[],_2N3:[],_3N3:[],_4N3:[],_5N3:[],_6N3:[],_7N3:[],_8N3:[],_9N3:[],_10N3:[],_11N3:[],_12N3:[],
+        _13N3:[],_14N3:[],_15N3:[],_16N3:[],_17N3:[],_18N3:[],_19N3:[],_20N3:[],_21N3:[],_22N3:[],_23N3:[],_24N3:[],
+        _25N3:[],_26N3:[],_27N3:[],_28N3:[],_29N3:[],_30N3:[],_31N3:[],_32N3:[],_33N3:[],_34N3:[],_35N3:[],_36N3:[]
+   };
+  
+   let maxOutcomeResult={};
+   results.forEach(item => {
+    maxOutcome._0N3.push(item._0N3);
+    maxOutcome._1N3.push(item._1N3);
+    maxOutcome._2N3.push(item._2N3);
+    maxOutcome._3N3.push(item._3N3);
+    maxOutcome._4N3.push(item._4N3);
+    maxOutcome._5N3.push(item._5N3);
+    maxOutcome._6N3.push(item._6N3);
+    maxOutcome._7N3.push(item._7N3);
+    maxOutcome._8N3.push(item._8N3);
+    maxOutcome._9N3.push(item._9N3);
+    maxOutcome._10N3.push(item._10N3);
+    maxOutcome._11N3.push(item._11N3);
+    maxOutcome._12N3.push(item._12N3);
+    maxOutcome._13N3.push(item._13N3);
+    maxOutcome._14N3.push(item._14N3);
+    maxOutcome._15N3.push(item._15N3);
+    maxOutcome._16N3.push(item._16N3);
+    maxOutcome._17N3.push(item._17N3);
+    maxOutcome._18N3.push(item._18N3);
+    maxOutcome._19N3.push(item._19N3);
+    maxOutcome._20N3.push(item._20N3);
+    maxOutcome._21N3.push(item._21N3);
+    maxOutcome._22N3.push(item._22N3);
+    maxOutcome._23N3.push(item._23N3);
+    maxOutcome._24N3.push(item._24N3);
+    maxOutcome._25N3.push(item._25N3);
+    maxOutcome._26N3.push(item._26N3);
+    maxOutcome._27N3.push(item._25N3);
+    maxOutcome._28N3.push(item._28N3);
+    maxOutcome._29N3.push(item._29N3);
+    maxOutcome._30N3.push(item._30N3);
+    maxOutcome._31N3.push(item._31N3);
+    maxOutcome._32N3.push(item._32N3);
+    maxOutcome._33N3.push(item._33N3);
+    maxOutcome._34N3.push(item._34N3);
+    maxOutcome._35N3.push(item._35N3);
+    maxOutcome._36N3.push(item._36N3);
+    
+   });
+  
+
+   maxOutcomeResult._0N3=Math.max.apply(null, maxOutcome._0N3);
+   maxOutcomeResult._1N3=Math.max.apply(null, maxOutcome._1N3);
+   maxOutcomeResult._2N3=Math.max.apply(null, maxOutcome._2N3);
+   maxOutcomeResult._3N3=Math.max.apply(null, maxOutcome._3N3);
+   maxOutcomeResult._4N3=Math.max.apply(null, maxOutcome._4N3);
+   maxOutcomeResult._5N3=Math.max.apply(null, maxOutcome._5N3);
+   maxOutcomeResult._6N3=Math.max.apply(null, maxOutcome._6N3);
+   maxOutcomeResult._7N3=Math.max.apply(null, maxOutcome._7N3);
+   maxOutcomeResult._8N3=Math.max.apply(null, maxOutcome._8N3);
+   maxOutcomeResult._9N3=Math.max.apply(null, maxOutcome._9N3);
+   maxOutcomeResult._10N3=Math.max.apply(null, maxOutcome._10N3);
+   maxOutcomeResult._11N3=Math.max.apply(null, maxOutcome._11N3);
+   maxOutcomeResult._12N3=Math.max.apply(null, maxOutcome._12N3);
+
+   maxOutcomeResult._13N3=Math.max.apply(null, maxOutcome._13N3);
+   maxOutcomeResult._14N3=Math.max.apply(null, maxOutcome._14N3);
+   maxOutcomeResult._15N3=Math.max.apply(null, maxOutcome._15N3);
+   maxOutcomeResult._16N3=Math.max.apply(null, maxOutcome._16N3);
+   maxOutcomeResult._17N3=Math.max.apply(null, maxOutcome._17N3);
+   maxOutcomeResult._18N3=Math.max.apply(null, maxOutcome._18N3);
+   maxOutcomeResult._19N3=Math.max.apply(null, maxOutcome._19N3);
+   maxOutcomeResult._20N3=Math.max.apply(null, maxOutcome._20N3);
+   maxOutcomeResult._21N3=Math.max.apply(null, maxOutcome._21N3);
+   maxOutcomeResult._22N3=Math.max.apply(null, maxOutcome._22N3);
+   maxOutcomeResult._23N3=Math.max.apply(null, maxOutcome._23N3);
+   maxOutcomeResult._24N3=Math.max.apply(null, maxOutcome._24N3);
+
+   maxOutcomeResult._25N3=Math.max.apply(null, maxOutcome._25N3);
+   maxOutcomeResult._26N3=Math.max.apply(null, maxOutcome._26N3);
+   maxOutcomeResult._27N3=Math.max.apply(null, maxOutcome._27N3);
+   maxOutcomeResult._28N3=Math.max.apply(null, maxOutcome._28N3);
+   maxOutcomeResult._29N3=Math.max.apply(null, maxOutcome._29N3);
+   maxOutcomeResult._30N3=Math.max.apply(null, maxOutcome._30N3);
+   maxOutcomeResult._31N3=Math.max.apply(null, maxOutcome._31N3);
+   maxOutcomeResult._32N3=Math.max.apply(null, maxOutcome._32N3);
+   maxOutcomeResult._33N3=Math.max.apply(null, maxOutcome._33N3);
+   maxOutcomeResult._34N3=Math.max.apply(null, maxOutcome._34N3);
+   maxOutcomeResult._35N3=Math.max.apply(null, maxOutcome._35N3);
+   maxOutcomeResult._36N3=Math.max.apply(null, maxOutcome._36N3);
+ 
+   return maxOutcomeResult;
+
+}
 
 
-export {RouletteCornerFourTypeMaxStats,RouletteTypeMaxStats,RouletteCornerThreeTypeMaxStats,RouletteLeftRightTypeMaxStats} ;
+
+export {RouletteCornerFourTypeMaxStats,RouletteTypeMaxStats,RouletteCornerThreeTypeMaxStats,
+    RouletteLeftRightTypeMaxStats,RouletteThreeNeighbourMaxStats} ;

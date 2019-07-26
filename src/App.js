@@ -22,6 +22,8 @@ import DisplayNumberDetails from "./DisplayNumbersWithNeighbours"
 import DisplayCurrentNumberStatistics from "./DisplayCurrentIndividualNumberStats"
 import DisplayNeighbourNumbers from "./DisplayNeighbourNumber"
 import {RetrieveLeftRightNumberList,GetTotalLeftRightStats} from "./RetrieveLeftRightNumbers"
+import {RetrieveThreeNeighboursList,GetTotalThreeNeighbourStats} from "./RetrieveThreeNeighbourStats"
+import DisplayThreeNeighbourBetting from "./DisplayThreeNeighbourBetting"
 import './style.css'
 
 
@@ -53,7 +55,8 @@ class App extends React.Component {
             cornerFourStats:{},
             leftRightStats:{},
             leftRightBetting:[],
-            
+            threeNeighbourBetting:[],
+            currentThreeNeighbourStats:{},
             currentIndividualNumberStats:{}
         }
         this.rouletteText=React.createRef();
@@ -206,12 +209,16 @@ handleSubmit()
   const cornerFourOutcome=GetTotalCornerFourStats(this.state.rouletteNumber);
   const cornerThreeOutcome=GetTotalCorneThreeStats(this.state.rouletteNumber);
   const LRStatsOutcome=GetTotalLeftRightStats(this.state.rouletteNumber);
+  const threeNeighbourOutcome=GetTotalThreeNeighbourStats(this.state.rouletteNumber);
   const cornerThreeBetting=cornerThreeOutcome.bettingType;
   const cornerThreeStats=cornerThreeOutcome.result;
   const cornerFourBetting=cornerFourOutcome.bettingType;
   const cornerFourStats=cornerFourOutcome.result;
   const LRStatsBetting=LRStatsOutcome.bettingType;
   const LRStats=LRStatsOutcome.result;
+  const threeNeighbourBetting=threeNeighbourOutcome;
+  const threeNeighbourStats=threeNeighbourOutcome.result;
+
   this.setState({individualNumBetting:indvBetting.outcome,
     currentIndividualNumberStats:indvBetting.result,
     roueletteTypeBetting:rouletteTypeBetting,
@@ -220,7 +227,9 @@ handleSubmit()
     cornerThreeStats:cornerThreeStats,
     cornerFourStats:cornerFourStats,
     leftRightBetting:LRStatsBetting,
-    leftRightStats:LRStats
+    leftRightStats:LRStats,
+    threeNeighbourBetting:threeNeighbourBetting.outcome,
+    currentThreeNeighbourStats:threeNeighbourBetting.result
   })
   console.log(this.state); 
   //this.rouletteText.value="";
@@ -278,6 +287,8 @@ componentDidUpdate()
                <DisplayWheelNumbers wheelNumbers={this.state.cornerFourBetting}/>
                <h3> Corner Three Betting</h3>
                <DisplayWheelNumbers wheelNumbers={this.state.cornerThreeBetting}/>
+               <h3> Three Neighbour Betting</h3>
+               <DisplayThreeNeighbourBetting wheelNumbers={this.state.threeNeighbourBetting}/>
                <h3> Left Right Random Betting</h3>
                <DisplayWheelNumbers wheelNumbers={this.state.leftRightBetting}/>
                <h3>Outcome</h3>
@@ -296,6 +307,7 @@ componentDidUpdate()
         const cornerFourStats=<RetrieveCornerFourList statsList={this.state.rouletteNumber}/>     
         const cornerThreeStats=<RetrieveCornerThreeList statsList={this.state.rouletteNumber}/>    
         const leftRightStats=<RetrieveLeftRightNumberList statsList={this.state.rouletteNumber}/>
+        const threeNeighbourStats=<RetrieveThreeNeighboursList statsList={this.state.rouletteNumber}/>
         const neighbourNumbers=<DisplayNeighbourNumbers/>
         const panes = [
           { menuItem: 'Main Betting', render: () => <Tab.Pane attached={false}>{mainStats}</Tab.Pane> },
@@ -308,7 +320,8 @@ componentDidUpdate()
           { menuItem: 'Large Stats', render: () => <Tab.Pane attached={false}>{largeNumberStats}</Tab.Pane> },
           { menuItem: 'Corner Four Stats', render: () => <Tab.Pane attached={false}>{cornerFourStats}</Tab.Pane> },
           { menuItem: 'Corner Three Stats', render: () => <Tab.Pane attached={false}>{cornerThreeStats}</Tab.Pane> },
-          { menuItem: 'Left Right Stats', render: () => <Tab.Pane attached={false}>{leftRightStats}</Tab.Pane> }
+          //{ menuItem: 'Left Right Stats', render: () => <Tab.Pane attached={false}>{leftRightStats}</Tab.Pane> },
+          { menuItem: 'Three Neighbour Stats', render: () => <Tab.Pane attached={false}>{threeNeighbourStats}</Tab.Pane> }
         ]
         const TabsPointing = () => (
           <Tab menu={{ secondary: true, pointing: true }} menuPosition='left' panes={panes} />

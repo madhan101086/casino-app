@@ -125,4 +125,49 @@ function HandleLeftRightNumberLocation(statsList)
 
 }
 
-export {HandleNumberLocation,HandleFourCornerNumberLocation,HandleThreeCornerNumberLocation,HandleLeftRightNumberLocation} ;
+function HandleThreeNeighbours(statsList)
+{
+  let rouletteType={};
+  rouletteType._0N3=DetermineNumberIndex(rouletteConst._0N3,statsList);
+  rouletteType._1N3=DetermineNumberIndex(rouletteConst._1N3,statsList);
+  rouletteType._2N3=DetermineNumberIndex(rouletteConst._2N3,statsList);
+  rouletteType._3N3=DetermineNumberIndex(rouletteConst._3N3,statsList);
+  rouletteType._4N3=DetermineNumberIndex(rouletteConst._4N3,statsList);
+  rouletteType._5N3=DetermineNumberIndex(rouletteConst._5N3,statsList);
+  rouletteType._6N3=DetermineNumberIndex(rouletteConst._6N3,statsList);
+  rouletteType._7N3=DetermineNumberIndex(rouletteConst._7N3,statsList);
+  rouletteType._8N3=DetermineNumberIndex(rouletteConst._8N3,statsList);
+  rouletteType._9N3=DetermineNumberIndex(rouletteConst._9N3,statsList);
+  rouletteType._10N3=DetermineNumberIndex(rouletteConst._10N3,statsList);
+  rouletteType._11N3=DetermineNumberIndex(rouletteConst._11N3,statsList);
+  rouletteType._12N3=DetermineNumberIndex(rouletteConst._12N3,statsList);
+  rouletteType._13N3=DetermineNumberIndex(rouletteConst._13N3,statsList);
+  rouletteType._14N3=DetermineNumberIndex(rouletteConst._14N3,statsList);
+  rouletteType._15N3=DetermineNumberIndex(rouletteConst._15N3,statsList);
+  rouletteType._16N3=DetermineNumberIndex(rouletteConst._16N3,statsList);
+  rouletteType._17N3=DetermineNumberIndex(rouletteConst._17N3,statsList);
+  rouletteType._18N3=DetermineNumberIndex(rouletteConst._18N3,statsList);
+  rouletteType._19N3=DetermineNumberIndex(rouletteConst._19N3,statsList);
+  rouletteType._20N3=DetermineNumberIndex(rouletteConst._20N3,statsList);
+  rouletteType._21N3=DetermineNumberIndex(rouletteConst._21N3,statsList);
+  rouletteType._22N3=DetermineNumberIndex(rouletteConst._22N3,statsList);
+  rouletteType._23N3=DetermineNumberIndex(rouletteConst._23N3,statsList);
+  rouletteType._24N3=DetermineNumberIndex(rouletteConst._24N3,statsList);
+  rouletteType._25N3=DetermineNumberIndex(rouletteConst._25N3,statsList);
+  rouletteType._26N3=DetermineNumberIndex(rouletteConst._26N3,statsList);
+  rouletteType._27N3=DetermineNumberIndex(rouletteConst._27N3,statsList);
+  rouletteType._28N3=DetermineNumberIndex(rouletteConst._28N3,statsList);
+  rouletteType._29N3=DetermineNumberIndex(rouletteConst._29N3,statsList);
+  rouletteType._30N3=DetermineNumberIndex(rouletteConst._30N3,statsList);
+  rouletteType._31N3=DetermineNumberIndex(rouletteConst._31N3,statsList);
+  rouletteType._32N3=DetermineNumberIndex(rouletteConst._32N3,statsList);
+  rouletteType._33N3=DetermineNumberIndex(rouletteConst._33N3,statsList);
+  rouletteType._34N3=DetermineNumberIndex(rouletteConst._34N3,statsList);
+  rouletteType._35N3=DetermineNumberIndex(rouletteConst._35N3,statsList);
+  rouletteType._36N3=DetermineNumberIndex(rouletteConst._36N3,statsList);
+  console.log(rouletteType)
+  return rouletteType;
+}
+
+export {HandleNumberLocation,HandleFourCornerNumberLocation,
+  HandleThreeCornerNumberLocation,HandleLeftRightNumberLocation,HandleThreeNeighbours} ;
