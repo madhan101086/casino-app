@@ -11,10 +11,10 @@ const DisplayLeftRightMaxStats=(maxOutcome)=>
   
     const LR_1={count:maxOutcome.LR_1,label:"LR_1"};
     const LR_2={count:maxOutcome.LR_2,label:"LR_2"};
-    const LR_3={count:maxOutcome.LR_2,label:"LR_3"};
-    const LR_4={count:maxOutcome.LR_2,label:"LR_4"};
-    const LR_5={count:maxOutcome.LR_2,label:"LR_5"};
-    const LR_6={count:maxOutcome.LR_2,label:"LR_6"};
+    const LR_3={count:maxOutcome.LR_3,label:"LR_3"};
+    const LR_4={count:maxOutcome.LR_4,label:"LR_4"};
+    const LR_5={count:maxOutcome.LR_5,label:"LR_5"};
+    const LR_6={count:maxOutcome.LR_6,label:"LR_6"};
     
     
    

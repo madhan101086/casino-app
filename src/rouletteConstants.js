@@ -160,12 +160,12 @@ const rouList=[
     {number:17,color:"black",numberRange:"small",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"orphellins",nei:_17N,_3Nei:_17N3},
     {number:18,color:"red",numberRange:"small",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"voisins",nei:_18N,_3Nei:_18N3},
 
-    {number:19,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_19N,_3Nei:_19N3},
-    {number:20,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins",nei:_20N,_3Nei:_20N3},
-    {number:21,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"voisins",nei:_21N,_3Nei:_21N3},
-    {number:22,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"voisins",nei:_22N,_3Nei:_22N3},
-    {number:23,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers",nei:_23N,_3Nei:_23N3},
-    {number:24,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"tiers",nei:_24N,_3Nei:_24N3},
+    {number:19,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_19N,_3Nei:_19N3},
+    {number:20,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"even",wheelType:"left",box:"orphellins",nei:_20N,_3Nei:_20N3},
+    {number:21,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"odd",wheelType:"right",box:"voisins",nei:_21N,_3Nei:_21N3},
+    {number:22,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList1",type:"even",wheelType:"left",box:"voisins",nei:_22N,_3Nei:_22N3},
+    {number:23,color:"red",numberRange:"large",rowList:"row12-24",colList:"ColList2",type:"odd",wheelType:"right",box:"tiers",nei:_23N,_3Nei:_23N3},
+    {number:24,color:"black",numberRange:"large",rowList:"row12-24",colList:"ColList3",type:"even",wheelType:"left",box:"tiers",nei:_24N,_3Nei:_24N3},
 
     {number:25,color:"red",numberRange:"large",rowList:"row25-36",colList:"ColList1",type:"odd",wheelType:"right",box:"voisins",nei:_25N,_3Nei:_25N3},
     {number:26,color:"black",numberRange:"large",rowList:"row25-36",colList:"ColList2",type:"even",wheelType:"left",box:"zero",nei:_26N,_3Nei:_26N3},

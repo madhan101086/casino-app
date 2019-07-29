@@ -23,6 +23,8 @@ const RetrieveStatsList=(props)=>
         
        var result= HandleNumberLocation(updatedStatsList)
         result.outcome=statsList[i];
+        result.recommendedBetting=GetTotalStats(updatedStatsList);
+       const betting=( <Label circular color="purple" >{result.recommendedBetting.join(" ,")} </Label>);
         results.push(result);
        //console.log(result)
        const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
@@ -70,15 +72,16 @@ const RetrieveStatsList=(props)=>
         <Table.Cell>{colList2ColorLabel}</Table.Cell>
         <Table.Cell>{colList3ColorLabel}</Table.Cell>
         <Table.Cell>{outcomeColorLabel}</Table.Cell>
+        <Table.Cell>{betting}</Table.Cell>
       </Table.Row>)
       rowList.push(tableRow);
     }
     let maxOutcomeCount=RouletteTypeMaxStats(results);
     const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
-      <div>
+      <div class="scrollTableHeight">
         {disNum}
-        <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
+        <Table  stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
             <Table.HeaderCell>Round</Table.HeaderCell>
@@ -101,7 +104,7 @@ const RetrieveStatsList=(props)=>
               <Table.HeaderCell>Col2</Table.HeaderCell>
               <Table.HeaderCell>Col3</Table.HeaderCell> 
               <Table.HeaderCell>Outcome</Table.HeaderCell> 
-         
+              <Table.HeaderCell>Betting</Table.HeaderCell> 
             </Table.Row>
           </Table.Header>
         
@@ -150,9 +153,9 @@ function getBettingNumbers(result)
   checkBettingNumber(bettingType,"Right",result.rightWheel,13);
   checkBettingNumber(bettingType,"Left",result.leftWheel,13);
   checkBettingNumber(bettingType,"Zero",result.zeroVar,22);
-  checkBettingNumber(bettingType,"Voisins",result.voisins,11);
+  checkBettingNumber(bettingType,"Voisins",result.voisins,9);
   checkBettingNumber(bettingType,"Orphellins",result.orephellins,22);
-  checkBettingNumber(bettingType,"Tier",result.tier,15);
+  checkBettingNumber(bettingType,"Tier",result.tier,13);
   checkBettingNumber(bettingType,"Row 1-12",result.rowList1,20);
   checkBettingNumber(bettingType,"Row 13-24",result.rowList2,20);
   checkBettingNumber(bettingType,"Row 25-36",result.rowList3,20);

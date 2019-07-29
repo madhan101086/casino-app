@@ -7,6 +7,7 @@ import DetermineCountLabel from './DetermineLargeCountLabel'
 import {RouletteCornerThreeTypeMaxStats} from "./DetermineRouletteTypeMaxStats"
 import DisplayCornerThreeMaxStats from "./DisplayCornerThreeStats"
 import rouletteConst from "./rouletteConstants"
+import DisplayWheelNumbers from "./DisplayWheelNumbers"
 import './style.css'
 const RetrieveCornerThreeList=(props)=>
 {
@@ -25,7 +26,10 @@ const RetrieveCornerThreeList=(props)=>
        var result= HandleThreeCornerNumberLocation(updatedStatsList)
         result.outcome=statsList[i];
         results.push(result);
-        
+        result.recommendedBetting=GetTotalCorneThreeStats(updatedStatsList);
+       
+        //console.log(result.recommendedBetting.bettingType)
+        const betting=( <DisplayWheelNumbers wheelNumbers={result.recommendedBetting.bettingType}/>);
         
        //console.log(result)
        const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
@@ -64,6 +68,7 @@ const RetrieveCornerThreeList=(props)=>
         <Table.Cell>{corn_31_32_33_Label}</Table.Cell>   
         <Table.Cell>{corn_34_35_36_Label}</Table.Cell> 
         <Table.Cell>{outcomeColorLabel}</Table.Cell>
+        <Table.Cell>{betting}</Table.Cell>
       </Table.Row>)
       rowList.push(tableRow);
     }
@@ -75,7 +80,7 @@ const RetrieveCornerThreeList=(props)=>
    // let maxOutcomeCount=RouletteTypeMaxStats(results);
     //const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
-      <div>
+      <div class="scrollTableHeight"> 
         {displayMaxStats}
         <Table collapsing={true} >
           <Table.Header>
@@ -94,7 +99,7 @@ const RetrieveCornerThreeList=(props)=>
             <Table.HeaderCell>31</Table.HeaderCell>
             <Table.HeaderCell>34</Table.HeaderCell>
               <Table.HeaderCell>O</Table.HeaderCell> 
-         
+              <Table.HeaderCell>Betting</Table.HeaderCell> 
             </Table.Row>
           </Table.Header>
         
@@ -165,7 +170,7 @@ function getBettingNumbers(result)
 }
 function checkBettingNumber(bettingType,rouletteType,numCount,checkCount)
 {
-  if(numCount>checkCount)
+  if(numCount>65)
   {
    
     rouletteType.forEach((item,id)=>

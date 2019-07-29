@@ -76,6 +76,7 @@ const DisplayRouletteDetails = (props) =>
 
   })
   const diplayTable=(
+    <div class="scrollTableHeight">
     <Table stackable sortable>
       <Table.Header>
         <Table.Row>
@@ -96,6 +97,7 @@ const DisplayRouletteDetails = (props) =>
         {rowList}
       </Table.Body>
     </Table>
+    </div>
   )
   return diplayTable;
 }

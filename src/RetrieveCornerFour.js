@@ -7,6 +7,7 @@ import DetermineCountLabel from './DetermineLargeCountLabel'
 import {RouletteCornerFourTypeMaxStats} from "./DetermineRouletteTypeMaxStats"
 import DisplayCornerFourMaxStats from "./DisplayCornerFourMaxStats"
 import rouletteConst from "./rouletteConstants"
+import DisplayWheelNumbers from "./DisplayWheelNumbers"
 import './style.css'
 const RetrieveCornerFourList=(props)=>
 {
@@ -25,9 +26,10 @@ const RetrieveCornerFourList=(props)=>
        var result= HandleFourCornerNumberLocation(updatedStatsList)
         result.outcome=statsList[i];
         results.push(result);
-        
+        result.recommendedBetting=GetTotalCornerFourStats(updatedStatsList);
        
-       //console.log(result)
+        //console.log(result.recommendedBetting.bettingType)
+        const betting=( <DisplayWheelNumbers wheelNumbers={result.recommendedBetting.bettingType}/>);
        const roundLabel=(<Label circular color="brown" >{i+1}</Label>)
        const outcomeColorLabel=DetermineLabel(result.outcome)
        const corn_0_1_2_3_Label=DetermineCountLabel(result.corn_0_1_2_3)
@@ -85,6 +87,7 @@ const RetrieveCornerFourList=(props)=>
         <Table.Cell>{corn_31_32_34_35_label}</Table.Cell>
         <Table.Cell>{corn_32_33_35_36_label}</Table.Cell>
         <Table.Cell>{outcomeColorLabel}</Table.Cell>
+        <Table.Cell>{betting}</Table.Cell>
       </Table.Row>)
       rowList.push(tableRow);
     }
@@ -96,7 +99,7 @@ const RetrieveCornerFourList=(props)=>
    // let maxOutcomeCount=RouletteTypeMaxStats(results);
     //const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
-      <div>
+      <div class="scrollTableHeight">
          {displayMaxStats}
         <Table collapsing={true} >
           <Table.Header>
@@ -126,7 +129,7 @@ const RetrieveCornerFourList=(props)=>
               <Table.HeaderCell>3132</Table.HeaderCell>
               <Table.HeaderCell>3233</Table.HeaderCell>
               <Table.HeaderCell>O</Table.HeaderCell> 
-         
+              <Table.HeaderCell>Betting</Table.HeaderCell> 
             </Table.Row>
           </Table.Header>
         

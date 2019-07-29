@@ -4,9 +4,9 @@ body {
 div{
     margin:2px !important;
 }
-tbody {
+.scrollTableHeight tbody {
     display: block;
-    /*height: 300px;*/
+    height: 300px;
     overflow: auto;
   }
   

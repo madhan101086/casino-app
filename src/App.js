@@ -2,7 +2,7 @@
 
 import React from "react"
 import rouletteConst from "./rouletteConstants"
-import {Button} from "react-bootstrap"
+import {Button,ButtonToolbar} from "react-bootstrap"
 import {Badge} from "react-bootstrap"
 import {Form} from "react-bootstrap"
 import {InputGroup,FormControl,Container,Row,Col} from "react-bootstrap"
@@ -24,6 +24,7 @@ import DisplayNeighbourNumbers from "./DisplayNeighbourNumber"
 import {RetrieveLeftRightNumberList,GetTotalLeftRightStats} from "./RetrieveLeftRightNumbers"
 import {RetrieveThreeNeighboursList,GetTotalThreeNeighbourStats} from "./RetrieveThreeNeighbourStats"
 import DisplayThreeNeighbourBetting from "./DisplayThreeNeighbourBetting"
+import {CopyToClipboard} from "react-copy-to-clipboard"
 import './style.css'
 
 
@@ -57,7 +58,8 @@ class App extends React.Component {
             leftRightBetting:[],
             threeNeighbourBetting:[],
             currentThreeNeighbourStats:{},
-            currentIndividualNumberStats:{}
+            currentIndividualNumberStats:{},
+            copied: false
         }
         this.rouletteText=React.createRef();
        
@@ -137,7 +139,7 @@ handleRouletteBlur(val)
     valList.forEach(item=>{
       this.setState(pre=>{
         let preArr=pre.rouletteNumber;
-        if(item)
+        if(item<=36 && item>=0)
         {
           preArr.push(Number(item))
         }
@@ -274,7 +276,13 @@ componentDidUpdate()
 
              <Row>
                <Col>
+               <ButtonToolbar>
                <Button variant="outline-success" onClick={this.handleSubmit}>Get Stats</Button>
+               <CopyToClipboard text={this.state.rouletteNumber.join(",")} 
+               onCopy={() => this.setState({copied: true})}>
+               <Button className="ml-3" variant="outline-success" >Copy Numbers</Button>
+               </CopyToClipboard>
+               </ButtonToolbar>
                </Col>
                </Row>
                <h3>Betting Numbers Left/Right</h3>
@@ -310,18 +318,18 @@ componentDidUpdate()
         const threeNeighbourStats=<RetrieveThreeNeighboursList statsList={this.state.rouletteNumber}/>
         const neighbourNumbers=<DisplayNeighbourNumbers/>
         const panes = [
-          { menuItem: 'Main Betting', render: () => <Tab.Pane attached={false}>{mainStats}</Tab.Pane> },
-          { menuItem: 'Live Stats', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
-          { menuItem: 'Live Individual Stats', render: () => <Tab.Pane attached={false}>{individualStats}</Tab.Pane> },
-          { menuItem: 'Neighbour Look Up', render: () => <Tab.Pane attached={false}>{neighbourNumbers}</Tab.Pane> },
+          { menuItem: 'Main', render: () => <Tab.Pane attached={false}>{mainStats}</Tab.Pane> },
+          { menuItem: 'Live', render: () => <Tab.Pane attached={false}>{displayStats}</Tab.Pane> },
+          { menuItem: 'Live Number', render: () => <Tab.Pane attached={false}>{individualStats}</Tab.Pane> },
+          { menuItem: 'Neighbour', render: () => <Tab.Pane attached={false}>{neighbourNumbers}</Tab.Pane> },
           { menuItem: 'Details', render: () => <Tab.Pane attached={false}>{displayRouletteDetails}</Tab.Pane> },
-          { menuItem: 'Total Stats', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> },
-          { menuItem: 'Small Stats', render: () => <Tab.Pane attached={false}>{smallNumberStats}</Tab.Pane> },
-          { menuItem: 'Large Stats', render: () => <Tab.Pane attached={false}>{largeNumberStats}</Tab.Pane> },
-          { menuItem: 'Corner Four Stats', render: () => <Tab.Pane attached={false}>{cornerFourStats}</Tab.Pane> },
-          { menuItem: 'Corner Three Stats', render: () => <Tab.Pane attached={false}>{cornerThreeStats}</Tab.Pane> },
-          { menuItem: 'Left Right Stats', render: () => <Tab.Pane attached={false}>{leftRightStats}</Tab.Pane> },
-          { menuItem: 'Three Neighbour Stats', render: () => <Tab.Pane attached={false}>{threeNeighbourStats}</Tab.Pane> }
+          { menuItem: 'Total', render: () => <Tab.Pane attached={false}>{totalStats}</Tab.Pane> },
+          { menuItem: 'Small', render: () => <Tab.Pane attached={false}>{smallNumberStats}</Tab.Pane> },
+          { menuItem: 'Large', render: () => <Tab.Pane attached={false}>{largeNumberStats}</Tab.Pane> },
+          { menuItem: 'Corner Four', render: () => <Tab.Pane attached={false}>{cornerFourStats}</Tab.Pane> },
+          { menuItem: 'Corner Three', render: () => <Tab.Pane attached={false}>{cornerThreeStats}</Tab.Pane> },
+          { menuItem: 'Left Right', render: () => <Tab.Pane attached={false}>{leftRightStats}</Tab.Pane> },
+          { menuItem: 'Three Neighbour', render: () => <Tab.Pane attached={false}>{threeNeighbourStats}</Tab.Pane> }
         ]
         const TabsPointing = () => (
           <Tab menu={{ secondary: true, pointing: true }} menuPosition='left' panes={panes} />

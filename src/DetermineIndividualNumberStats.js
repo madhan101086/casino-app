@@ -73,6 +73,7 @@ const DetermineIndividualNumberStats=(props)=>
     //console.log("number result")
    // console.log(results)
     const diplayTable=(
+      <div class="scrollTableHeight">
         <Table stackable sortable celled striped selectable role="grid" aria-labelledby="header"  >
           <Table.Header>
             <Table.Row>
@@ -107,6 +108,7 @@ const DetermineIndividualNumberStats=(props)=>
            {smallRowList}
           </Table.Body>
         </Table>
+        </div>
       )
     return diplayTable
     

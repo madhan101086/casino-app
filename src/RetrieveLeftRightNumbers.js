@@ -62,7 +62,7 @@ const RetrieveLeftRightNumberList=(props)=>
    // let maxOutcomeCount=RouletteTypeMaxStats(results);
     //const disNum=DisplayRouletteTypeNumLabel(maxOutcomeCount);
     const diplayTable=(
-      <div>
+      <div class="scrollTableHeight">
          {displayMaxStats}
         <Table collapsing={true} >
           <Table.Header>
@@ -140,7 +140,7 @@ function getBettingNumbers(result)
 }
 function checkBettingNumber(bettingType,rouletteType,numCount,checkCount)
 {
-  if(numCount>17)
+  if(numCount>40)
   {
    //console.log(rouletteType)
     rouletteType.forEach((item,id)=>
